@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { handleError } from "@/lib/error";
+import { TopBar } from "@/components/layout/TopBar";
 
 const makeClient = () =>
   new QueryClient({
@@ -30,7 +31,10 @@ export function Providers({ children }: { readonly children: React.ReactNode }) 
   return (
     <QueryClientProvider client={client}>
       {ready ? (
-        children
+        <>
+          <TopBar />
+          {children}
+        </>
       ) : (
         <div style={{ minHeight: "100vh", background: "var(--bg)" }} />
       )}
