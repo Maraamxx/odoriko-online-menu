@@ -10,8 +10,10 @@ export default function VatPage() {
       <h1 className="font-serif text-2xl font-semibold" style={{ color: "var(--ink)" }}>
         {COPY.admin.nav.vat}
       </h1>
-      <VatConfigCard />
-      <TaxSnapshotCard />
+      <div className="grid grid-cols-2 gap-6">
+        <VatConfigCard />
+        <TaxSnapshotCard />
+      </div>
     </div>
   );
 }
