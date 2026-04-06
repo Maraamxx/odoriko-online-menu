@@ -6,62 +6,67 @@ import type {
   Money,
 } from "@/domain.contract";
 
-/** Compute subtotal from cart items (sum of price * quantity). */
-export function computeSubtotal(items: CartItem[]): Money {
-  return items.reduce(
-    (sum, item) => sum + item.priceInCents * item.quantity,
-    0,
-  ) as Money;
+const cents = (n: number): Money => n as Money;
+
+export function calculateSubtotal(items: CartItem[]): Money {
+  return cents(
+    items.reduce((sum, i) => sum + i.priceInCents * i.quantity, 0),
+  );
 }
 
-/** Resolve the delivery fee based on type, subtotal, and settings. */
-export function resolveDeliveryFee(
+export function calculateDeliveryFee(
+  subtotal: Money,
   deliveryType: DeliveryType,
-  subtotalInCents: Money,
   settings: PricingSettings,
 ): Money {
   if (
     settings.freeDeliveryEnabled &&
-    subtotalInCents >= settings.freeDeliveryThresholdInCents
+    subtotal >= settings.freeDeliveryThresholdInCents
   ) {
-    return 0 as Money;
+    return cents(0);
   }
-  return (deliveryType === "express"
-    ? settings.expressDeliveryInCents
-    : settings.standardDeliveryInCents) as Money;
+  return cents(
+    deliveryType === "express"
+      ? settings.expressDeliveryInCents
+      : settings.standardDeliveryInCents,
+  );
 }
 
-/** Compute VAT on (subtotal + serviceFee). Delivery is VAT-exempt. */
-export function computeVat(
-  subtotalInCents: number,
-  serviceFeeInCents: number,
+export function calculateVat(
+  subtotal: Money,
+  deliveryFee: Money,
+  serviceFee: Money,
   settings: PricingSettings,
 ): Money {
-  if (!settings.vatEnabled) return 0 as Money;
-  return Math.round(
-    ((subtotalInCents + serviceFeeInCents) * settings.vatRatePercent) / 100,
-  ) as Money;
+  if (!settings.vatEnabled) return cents(0);
+  return cents(
+    Math.round(
+      ((subtotal + deliveryFee + serviceFee) * settings.vatRatePercent) / 100,
+    ),
+  );
 }
 
-/** Build the full OrderPricing object from cart items + settings. */
 export function buildOrderPricing(
   items: CartItem[],
   deliveryType: DeliveryType,
   settings: PricingSettings,
 ): OrderPricing {
-  const subtotalInCents = computeSubtotal(items);
-  const deliveryFeeInCents = resolveDeliveryFee(
-    deliveryType,
+  const subtotalInCents = calculateSubtotal(items);
+  const deliveryFeeInCents = calculateDeliveryFee(
     subtotalInCents,
+    deliveryType,
     settings,
   );
-  const serviceFeeInCents = settings.serviceFeeInCents as Money;
-  const vatInCents = computeVat(subtotalInCents, serviceFeeInCents, settings);
-  const grandTotalInCents = (subtotalInCents +
-    deliveryFeeInCents +
-    serviceFeeInCents +
-    vatInCents) as Money;
-
+  const serviceFeeInCents = cents(settings.serviceFeeInCents);
+  const vatInCents = calculateVat(
+    subtotalInCents,
+    deliveryFeeInCents,
+    serviceFeeInCents,
+    settings,
+  );
+  const grandTotalInCents = cents(
+    subtotalInCents + deliveryFeeInCents + serviceFeeInCents + vatInCents,
+  );
   return {
     subtotalInCents,
     deliveryFeeInCents,
