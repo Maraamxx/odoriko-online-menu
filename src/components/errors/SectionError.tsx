@@ -4,8 +4,8 @@ import { Button } from "@/components/ui";
 import { COPY } from "@/constants/copy";
 
 interface SectionErrorProps {
-  readonly message?: string;
-  readonly onRetry?: () => void;
+  readonly message?: string | undefined;
+  readonly onRetry?: (() => void) | undefined;
 }
 
 export function SectionError({ message, onRetry }: SectionErrorProps) {
