@@ -3,8 +3,8 @@ import { cn } from "@/lib/cn";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   readonly label: string;
-  readonly error?: string;
-  readonly hint?: string;
+  readonly error?: string | undefined;
+  readonly hint?: string | undefined;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
