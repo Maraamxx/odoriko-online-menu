@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import type { ApiError } from "@/domain.contract";
 
 export type AppErrorType =
@@ -101,10 +102,11 @@ export function handleError(error: unknown): void {
     console.error("[AppError]", appError.type, appError.context);
   }
 
-  // TODO: Replace with toast library (sonner / react-hot-toast)
-  if (typeof window !== "undefined") {
-    console.warn(`[${appError.type}]`, appError.userMessage);
-  }
+  toast.error(appError.userMessage, {
+    action: appError.retryable
+      ? { label: "Retry", onClick: () => window.location.reload() }
+      : undefined,
+  });
 }
 
 export function toAppError(error: unknown): AppError {

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "sonner";
 import { handleError } from "@/lib/error";
 
 const makeClient = () =>
@@ -29,6 +30,18 @@ export function Providers({ children }: { readonly children: React.ReactNode }) 
 
   return (
     <QueryClientProvider client={client}>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            fontFamily: "Work Sans, sans-serif",
+            fontSize: "13px",
+            background: "var(--surface)",
+            color: "var(--ink)",
+            border: "1px solid var(--border)",
+          },
+        }}
+      />
       {ready ? (
         children
       ) : (
