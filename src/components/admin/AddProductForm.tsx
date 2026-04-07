@@ -21,7 +21,7 @@ export function AddProductForm({ onDone }: AddProductFormProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- RHF + Zod + exactOptionalPropertyTypes conflict
   const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     resolver: zodResolver(CreateProductInputSchema),
-    defaultValues: { rating: 4.5 },
+    defaultValues: { rating: 4.5, imageUrl: "/dishes/placeholder.webp" },
   } as any);
   const err = (field: string) => (errors[field] as { message?: string } | undefined)?.message;
 

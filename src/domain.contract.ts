@@ -263,7 +263,7 @@ export const CreateProductInputSchema = z.object({
     .number({ error: "Enter a valid price" })
     .int()
     .positive("Must be positive"),
-  imageUrl: z.url({ error: "Enter a valid image URL" }),
+  imageUrl: z.string().min(1, "Enter an image URL"),
   rating: z.number().min(0).max(5).default(0),
   badge: z.string().max(30).nullable().default(null),
   allergens: z.array(z.enum(ALLERGENS)).default([]),
