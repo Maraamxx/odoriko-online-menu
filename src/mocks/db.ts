@@ -15,7 +15,8 @@ const cash = (n: number): Money => n as Money;
 const now = () => new Date().toISOString();
 const daysAgo = (d: number) =>
   new Date(Date.now() - d * 86_400_000).toISOString();
-const dish = (cat: string, file: string) => `/dishes/${cat}/${file}`;
+const dish = (cat: string, file: string) =>
+  `/dishes/${cat}/${file.replace(/\.(png|PNG|jpg|JPG|jpeg)$/, ".webp")}`;
 
 // ── Seed products ────────────────────────────────────────────────────────────
 

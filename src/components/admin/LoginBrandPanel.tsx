@@ -10,7 +10,7 @@ export function LoginBrandPanel() {
     <div className="relative hidden overflow-hidden lg:block">
       {/* Background image — use a moody dish photo */}
       <Image
-        src="/brand/login-photo.jpg"
+        src="/brand/login-photo.webp"
         alt=""
         fill
         sizes="50vw"
