@@ -7,7 +7,7 @@ interface SettingsRowProps {
 
 export function SettingsRow({ label, note, children }: SettingsRowProps) {
   return (
-    <div className="flex items-center justify-between gap-4 py-3">
+    <div className="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
       <div>
         <p className="text-sm font-medium" style={{ color: "var(--ink)" }}>{label}</p>
         {note && <p className="text-xs" style={{ color: "var(--ink4)" }}>{note}</p>}

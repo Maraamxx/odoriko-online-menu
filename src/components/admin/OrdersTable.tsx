@@ -51,8 +51,8 @@ export function OrdersTable() {
           placeholder="Search by customer or order ID..."
           value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-          className="rounded-lg border px-3 py-1.5 text-sm"
-          style={{ borderColor: "var(--border)", color: "var(--ink)", width: 240 }}
+          className="w-full rounded-lg border px-3 py-1.5 text-sm sm:w-[240px]"
+          style={{ borderColor: "var(--border)", color: "var(--ink)" }}
         />
         <select
           value={statusFilter}

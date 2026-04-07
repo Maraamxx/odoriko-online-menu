@@ -71,11 +71,13 @@ export default function CategoriesPage() {
       </div>
 
       {showForm && (
-        <div className="flex items-end gap-3 rounded-xl border p-5" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
+        <div className="flex flex-col gap-3 rounded-xl border p-5 sm:flex-row sm:items-end" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
           <div className="flex-1"><Input label="Category name" placeholder="e.g. Tempura" value={newName} onChange={(e) => setNewName(e.target.value)} /></div>
           <div className="flex-1"><Input label="Japanese translation" placeholder="e.g. 天ぷら" value={newJa} onChange={(e) => setNewJa(e.target.value)} /></div>
-          <Button size="sm" onClick={handleAdd} isLoading={createCat.isPending}>Save</Button>
-          <Button size="sm" variant="secondary" onClick={() => setShowForm(false)}>Cancel</Button>
+          <div className="flex gap-2">
+            <Button size="sm" onClick={handleAdd} isLoading={createCat.isPending}>Save</Button>
+            <Button size="sm" variant="secondary" onClick={() => setShowForm(false)}>Cancel</Button>
+          </div>
         </div>
       )}
 

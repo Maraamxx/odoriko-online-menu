@@ -27,9 +27,8 @@ export function CartPanel() {
 
       {/* Drawer */}
       <aside
-        className="fixed right-0 top-16 z-50 flex flex-col border-l transition-transform duration-300"
+        className="fixed right-0 top-16 z-50 flex w-full flex-col border-l transition-transform duration-300 sm:w-[380px]"
         style={{
-          width: 380,
           height: "calc(100vh - 64px)",
           background: "var(--surface)",
           borderColor: "var(--border)",

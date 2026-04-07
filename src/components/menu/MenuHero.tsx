@@ -10,7 +10,7 @@ export function MenuHero() {
       >
         {COPY.menu.heroEyebrow}
       </span>
-      <h1 className="max-w-lg font-serif text-[44px] font-bold leading-[1.1] tracking-tight" style={{ color: "var(--ink)" }}>
+      <h1 className="max-w-lg font-serif text-[28px] font-bold leading-[1.1] tracking-tight sm:text-[44px]" style={{ color: "var(--ink)" }}>
         CRAFTED FOR YOUR{" "}
         <em className="font-serif italic" style={{ color: "var(--accent)" }}>FINEST</em>{" "}
         MOMENTS

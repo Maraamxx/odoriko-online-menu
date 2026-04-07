@@ -36,7 +36,7 @@ export function TopBar() {
       </Link>
 
       {/* Center: View toggle */}
-      <div className="flex gap-1 rounded-full border p-0.5" style={{ borderColor: "var(--border2)" }}>
+      <div className="hidden gap-1 rounded-full border p-0.5 sm:flex" style={{ borderColor: "var(--border2)" }}>
         <Link
           href={ROUTES.MENU}
           className={cn(

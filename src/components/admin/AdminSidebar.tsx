@@ -42,7 +42,7 @@ export function AdminSidebar() {
 
   return (
     <aside
-      className="sticky top-16 flex flex-col gap-6 overflow-y-auto border-r px-3 py-5"
+      className="hidden sticky top-16 flex-col gap-6 overflow-y-auto border-r px-3 py-5 md:flex"
       style={{
         width: 216,
         height: "calc(100vh - 64px)",

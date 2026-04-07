@@ -22,7 +22,7 @@ export function StatCardGrid() {
     : stats.revenueChangePercent < 0 ? "down" as const : "neutral" as const;
 
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
       <StatCard
         label={COPY.admin.stats.revenue}
         value={formatPrice(stats.revenueInCents as Money, currency)}

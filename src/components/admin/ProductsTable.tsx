@@ -70,8 +70,8 @@ export function ProductsTable() {
       <div className="flex flex-wrap items-center gap-3">
         <input type="text" placeholder="Search products..." value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-          className="rounded-lg border px-3 py-1.5 text-sm"
-          style={{ borderColor: "var(--border)", color: "var(--ink)", width: 200 }} />
+          className="w-full rounded-lg border px-3 py-1.5 text-sm sm:w-[200px]"
+          style={{ borderColor: "var(--border)", color: "var(--ink)" }} />
         <select value={categoryFilter}
           onChange={(e) => { setCategoryFilter(e.target.value as ProductCategory | "all"); setPage(1); }}
           className="rounded-lg border px-3 py-1.5 text-sm" style={{ borderColor: "var(--border)", color: "var(--ink)" }}>

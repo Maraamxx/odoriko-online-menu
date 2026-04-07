@@ -48,7 +48,7 @@ export function Modal({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-4"
       style={{ background: "rgba(26,25,23,0.55)", backdropFilter: "blur(4px)" }}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -58,16 +58,16 @@ export function Modal({
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className={cn("w-full overflow-y-auto", sizeStyles[size])}
+        className={cn("w-full overflow-y-auto sm:rounded-[24px]", sizeStyles[size])}
         style={{
           background: "var(--surface)",
-          borderRadius: 24,
+          borderRadius: "24px 24px 0 0",
           maxHeight: "90vh",
         }}
       >
         {title && (
           <div
-            className="flex items-center justify-between px-6 pt-6 pb-2"
+            className="flex items-center justify-between px-4 pt-4 pb-2 sm:px-6 sm:pt-6"
             style={{ color: "var(--ink)" }}
           >
             <h2 className="text-lg font-semibold">{title}</h2>
@@ -81,7 +81,7 @@ export function Modal({
             </button>
           </div>
         )}
-        <div className="px-6 pb-6">{children}</div>
+        <div className="px-4 pb-4 sm:px-6 sm:pb-6">{children}</div>
       </div>
     </div>,
     document.body,

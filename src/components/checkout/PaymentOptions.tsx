@@ -17,7 +17,7 @@ const ICONS: Record<PaymentMethod, string> = {
 
 export function PaymentOptions({ selected, onSelect }: PaymentOptionsProps) {
   return (
-    <div className="grid grid-cols-3 gap-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
       {PAYMENT_METHODS.map((method) => (
         <button
           key={method}

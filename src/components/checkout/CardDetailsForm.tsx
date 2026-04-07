@@ -17,7 +17,7 @@ export function CardDetailsForm({ form }: CardDetailsFormProps) {
   return (
     <div className="mt-4 flex flex-col gap-4">
       <Input label={COPY.forms.cardNumber} error={errors.number?.message} {...register("number")} />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Input label={COPY.forms.expiry} error={errors.expiry?.message} placeholder="MM/YY" {...register("expiry")} />
         <Input label={COPY.forms.cvc} error={errors.cvc?.message} {...register("cvc")} />
       </div>

@@ -10,7 +10,7 @@ export default function DeliveryPage() {
       <h1 className="font-serif text-2xl font-semibold" style={{ color: "var(--ink)" }}>
         {COPY.admin.nav.delivery}
       </h1>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <DeliveryRatesCard />
         <ServiceFeeCard />
       </div>

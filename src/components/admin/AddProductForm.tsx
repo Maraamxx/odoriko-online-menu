@@ -56,7 +56,7 @@ export function AddProductForm({ onDone }: AddProductFormProps) {
     >
       <h3 className="font-serif text-lg font-semibold" style={{ color: "var(--ink)" }}>New product</h3>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Input label="Product name" placeholder="e.g. Foie Gras Terrine" error={err("name")} {...register("name")} />
         <div className="flex flex-col gap-1">
           <label className="text-xs font-medium" style={{ color: "var(--ink3)" }}>Category</label>

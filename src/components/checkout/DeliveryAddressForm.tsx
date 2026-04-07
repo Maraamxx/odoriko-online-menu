@@ -15,12 +15,12 @@ export function DeliveryAddressForm({ form }: DeliveryAddressFormProps) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Input label={COPY.forms.firstName} error={errors.firstName?.message} {...register("firstName")} />
         <Input label={COPY.forms.lastName} error={errors.lastName?.message} {...register("lastName")} />
       </div>
       <Input label={COPY.forms.street} error={errors.street?.message} {...register("street")} />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Input label={COPY.forms.city} error={errors.city?.message} {...register("city")} />
         <Input label={COPY.forms.postalCode} error={errors.postalCode?.message} {...register("postalCode")} />
       </div>

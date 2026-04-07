@@ -43,7 +43,7 @@ export function ProductGrid({ products, isLoading, error, onAdd, currency, onRet
 
   if (isLoading) {
     return (
-      <div className="grid gap-5" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         {Array.from({ length: 8 }, (_, i) => <SkeletonCard key={i} />)}
       </div>
     );
@@ -62,7 +62,7 @@ export function ProductGrid({ products, isLoading, error, onAdd, currency, onRet
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="grid gap-5" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         {visible.map((product) => (
           <ProductCard key={product.id} product={product} onAdd={onAdd} currency={currency} />
         ))}
