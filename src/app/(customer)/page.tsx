@@ -10,6 +10,7 @@ import { ProductGrid } from "@/components/menu/ProductGrid";
 import { CartPanel } from "@/components/cart/CartPanel";
 import { CheckoutModal } from "@/components/checkout/CheckoutModal";
 import type { ProductCategory } from "@/domain.contract";
+import { COPY } from "@/constants/copy";
 
 export default function MenuPage() {
   const activeCategory = useUIStore((s) => s.activeCategory);
@@ -25,6 +26,16 @@ export default function MenuPage() {
           <MenuHero />
           <CategoryBar active={activeCategory} onSelect={setActiveCategory} />
           <div className="mt-6">
+            <div className="mb-5 flex items-baseline justify-between">
+              <h2 className="font-serif text-2xl font-semibold" style={{ color: "var(--ink)" }}>
+                {activeCategory === "All" ? "Full Menu" : activeCategory}
+              </h2>
+              {products && (
+                <span className="text-xs" style={{ color: "var(--ink4)" }}>
+                  {products.length} {COPY.menu.available}
+                </span>
+              )}
+            </div>
             <ProductGrid
               products={products}
               isLoading={isLoading}

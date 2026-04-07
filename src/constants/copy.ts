@@ -22,7 +22,7 @@ export const COPY = {
   cart: {
     title:        'Your Order',
     emptyTitle:   'Nothing here yet',
-    emptySub:     'Add dishes from the menu to begin your experience.',
+    emptySub:     'Add dishes from the menu to begin crafting your dining experience.',
     items:        (n: number) => `${n} item${n !== 1 ? 's' : ''}` as const,
     subtotal:     'Subtotal',
     delivery:     'Delivery',

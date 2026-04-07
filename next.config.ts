@@ -3,5 +3,10 @@ const config: NextConfig = {
   images: {
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
   },
+  turbopack: {
+    root: __dirname,
+  },
+  allowedDevOrigins: ["172.20.10.4"],
 };
+
 export default config;

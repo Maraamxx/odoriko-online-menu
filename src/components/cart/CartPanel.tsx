@@ -23,25 +23,38 @@ export function CartPanel() {
         borderColor: "var(--border)",
       }}
     >
-      <div className="flex items-center justify-between px-5 py-4">
-        <h2 className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
-          {COPY.cart.title}
-        </h2>
-        {cart.itemCount > 0 && (
-          <span className="text-xs" style={{ color: "var(--ink4)" }}>
-            {COPY.cart.items(cart.itemCount)}
+      <div className="px-5 py-4">
+        <div className="flex items-center justify-between">
+          <h2 className="font-serif text-lg font-semibold" style={{ color: "var(--ink)" }}>
+            {COPY.cart.title}
+          </h2>
+          <span
+            className="rounded-full border px-2.5 py-0.5 text-[11px] font-medium"
+            style={{ borderColor: "var(--border2)", color: "var(--ink3)" }}
+          >
+            {cart.itemCount > 0 ? COPY.cart.items(cart.itemCount) : `0 items`}
           </span>
+        </div>
+        {cart.itemCount === 0 && (
+          <p className="mt-0.5 text-xs" style={{ color: "var(--ink4)" }}>Select dishes to begin</p>
         )}
       </div>
 
       <div className="flex-1 overflow-y-auto px-5">
         {cart.items.length === 0 ? (
-          <div className="flex flex-col items-center gap-2 py-16 text-center">
-            <span className="text-3xl">&#x1F6D2;</span>
+          <div className="flex flex-col items-center gap-3 py-16 text-center">
+            <div
+              className="flex h-14 w-14 items-center justify-center rounded-full"
+              style={{ background: "var(--surface2)" }}
+            >
+              <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="var(--ink4)" strokeWidth={1.5}>
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" />
+              </svg>
+            </div>
             <p className="text-sm font-medium" style={{ color: "var(--ink2)" }}>
               {COPY.cart.emptyTitle}
             </p>
-            <p className="text-xs" style={{ color: "var(--ink4)" }}>
+            <p className="max-w-[200px] text-xs leading-relaxed" style={{ color: "var(--ink4)" }}>
               {COPY.cart.emptySub}
             </p>
           </div>
