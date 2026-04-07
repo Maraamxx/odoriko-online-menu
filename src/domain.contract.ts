@@ -147,7 +147,7 @@ export const ProductSchema = z.object({
   categoryId: z.string().min(1),
   name: z.string().min(1).max(100),
   description: z.string().min(1).max(500),
-  category: z.enum(PRODUCT_CATEGORIES),
+  category: z.string().min(1),
   priceInCents: z.number().int().positive(),
   imageUrl: z.string().min(1),
   rating: z.number().min(0).max(5),
@@ -258,7 +258,7 @@ export const CreateProductInputSchema = z.object({
     .string()
     .min(1, "Description is required")
     .max(500, "Too long"),
-  category: z.enum(PRODUCT_CATEGORIES, { error: "Select a category" }),
+  category: z.string().min(1, "Select a category"),
   priceInCents: z
     .number({ error: "Enter a valid price" })
     .int()

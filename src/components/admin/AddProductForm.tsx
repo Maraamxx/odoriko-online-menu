@@ -4,8 +4,9 @@
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CreateProductInputSchema, PRODUCT_CATEGORIES, type CreateProductInput } from "@/domain.contract";
+import { CreateProductInputSchema, type CreateProductInput } from "@/domain.contract";
 import { useCreateProduct } from "@/hooks/useProducts";
+import { useCategories } from "@/hooks/useCategories";
 import { Input, Button } from "@/components/ui";
 import { handleError } from "@/lib/error";
 
@@ -15,6 +16,7 @@ interface AddProductFormProps {
 
 export function AddProductForm({ onDone }: AddProductFormProps) {
   const createProduct = useCreateProduct();
+  const { data: categories } = useCategories();
   const fileRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -66,7 +68,7 @@ export function AddProductForm({ onDone }: AddProductFormProps) {
             {...register("category")}
           >
             <option value="">Select...</option>
-            {PRODUCT_CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
+            {(categories ?? []).map((c) => <option key={c.id} value={c.name}>{c.name}</option>)}
           </select>
           {err("category") && <p className="text-[11px]" style={{ color: "var(--red)" }}>{err("category")}</p>}
         </div>
