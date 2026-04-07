@@ -20,9 +20,10 @@ export function AddProductForm({ onDone }: AddProductFormProps) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
+  const FormSchema = CreateProductInputSchema.omit({ categoryId: true });
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- RHF + Zod + exactOptionalPropertyTypes conflict
   const { register, handleSubmit, setValue, formState: { errors } } = useForm({
-    resolver: zodResolver(CreateProductInputSchema),
+    resolver: zodResolver(FormSchema),
     defaultValues: { rating: 4.5, imageUrl: "/dishes/placeholder.webp" },
   } as any);
   const err = (field: string) => (errors[field] as { message?: string } | undefined)?.message;
@@ -52,7 +53,7 @@ export function AddProductForm({ onDone }: AddProductFormProps) {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, (validationErrors) => console.error("[AddProductForm] validation failed:", validationErrors))}
       className="flex flex-col gap-4 rounded-xl border p-6"
       style={{ borderColor: "var(--border)", background: "var(--surface)" }}
     >
