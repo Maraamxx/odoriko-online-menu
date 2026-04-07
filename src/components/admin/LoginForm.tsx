@@ -5,13 +5,12 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Input, Button } from "@/components/ui";
 import { handleError } from "@/lib/error";
 import { COPY } from "@/constants/copy";
 
 export function LoginForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const from = searchParams.get("from") ?? "/admin";
   const [password, setPassword] = useState("dev-secret-change-me");
