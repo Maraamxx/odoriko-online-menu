@@ -18,7 +18,7 @@ export function TopBar() {
 
   return (
     <header
-      className="sticky top-0 z-40 flex h-16 items-center justify-between border-b px-6"
+      className="sticky top-0 z-40 flex h-16 items-center justify-between border-b px-3 sm:px-6"
       style={{ background: "var(--surface)", borderColor: "var(--border)" }}
     >
       {/* Left: Brand */}
@@ -28,8 +28,7 @@ export function TopBar() {
           alt={COPY.brand.name}
           width={140}
           height={36}
-          className="object-contain"
-          style={{ width: "auto", height: 32 }}
+          className="h-6 w-auto object-contain sm:h-8"
           priority
         />
       </Link>
@@ -65,13 +64,13 @@ export function TopBar() {
         {!isAdmin && (
           <button
             onClick={openCart}
-            className="flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:opacity-90"
+            className="relative flex items-center gap-2 rounded-full px-2.5 py-2 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:opacity-90 sm:px-4"
             style={{ background: "var(--accent)" }}
           >
             <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" />
             </svg>
-            {COPY.nav.cart}
+            <span className="hidden sm:inline">{COPY.nav.cart}</span>
             {itemCount > 0 && (
               <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-white px-1 text-[10px] font-bold"
                 style={{ color: "var(--accent)" }}>
