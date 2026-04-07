@@ -20,7 +20,7 @@ export function ProductCard({ product, onAdd, currency }: ProductCardProps) {
 
   return (
     <div
-      className="group relative flex overflow-hidden border transition-all duration-200 hover:shadow-lg"
+      className="group relative flex flex-col overflow-hidden border transition-all duration-200 hover:shadow-lg sm:flex-row"
       style={{
         background: "var(--surface)",
         borderColor: "var(--border)",
@@ -29,12 +29,12 @@ export function ProductCard({ product, onAdd, currency }: ProductCardProps) {
       }}
     >
       {/* Image */}
-      <div className="relative h-[180px] w-[180px] shrink-0 overflow-hidden">
+      <div className="relative h-[160px] w-full shrink-0 overflow-hidden sm:h-[180px] sm:w-[180px]">
         <Image
           src={imageUrl}
           alt={name}
           fill
-          sizes="180px"
+          sizes="(max-width: 640px) 100vw, 180px"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         {badge && (

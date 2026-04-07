@@ -21,8 +21,8 @@ interface ProductGridProps {
 
 function SkeletonCard() {
   return (
-    <div className="flex animate-pulse overflow-hidden border" style={{ borderColor: "var(--border)", borderRadius: 14 }}>
-      <div className="h-[180px] w-[180px] shrink-0" style={{ background: "var(--surface2)" }} />
+    <div className="flex flex-col animate-pulse overflow-hidden border sm:flex-row" style={{ borderColor: "var(--border)", borderRadius: 14 }}>
+      <div className="h-[160px] w-full shrink-0 sm:h-[180px] sm:w-[180px]" style={{ background: "var(--surface2)" }} />
       <div className="flex flex-1 flex-col gap-3 p-4">
         <div className="h-4 w-3/4 rounded" style={{ background: "var(--surface3)" }} />
         <div className="h-3 w-full rounded" style={{ background: "var(--surface2)" }} />

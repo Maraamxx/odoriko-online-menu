@@ -13,8 +13,7 @@ import { cn } from "@/lib/cn";
 export function TopBar() {
   const pathname = usePathname();
   const itemCount = useCartStore((s) => s.items.reduce((n, i) => n + i.quantity, 0));
-  const toggleCart = useUIStore((s) => s.toggleCart);
-  const openCheckout = useUIStore((s) => s.openCheckout);
+  const openCart = useUIStore((s) => s.openCart);
   const isAdmin = pathname.startsWith("/admin");
 
   return (
@@ -36,11 +35,11 @@ export function TopBar() {
       </Link>
 
       {/* Center: View toggle */}
-      <div className="hidden gap-1 rounded-full border p-0.5 sm:flex" style={{ borderColor: "var(--border2)" }}>
+      <div className="flex gap-1 rounded-full border p-0.5" style={{ borderColor: "var(--border2)" }}>
         <Link
           href={ROUTES.MENU}
           className={cn(
-            "rounded-full px-5 py-1.5 text-xs font-semibold uppercase tracking-wider transition-colors",
+            "rounded-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider transition-colors sm:px-5 sm:text-xs",
             !isAdmin
               ? "bg-[var(--ink)] text-white"
               : "text-[var(--ink3)] hover:text-[var(--ink)]",
@@ -51,7 +50,7 @@ export function TopBar() {
         <Link
           href={ROUTES.ADMIN.DASHBOARD}
           className={cn(
-            "rounded-full px-5 py-1.5 text-xs font-semibold uppercase tracking-wider transition-colors",
+            "rounded-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider transition-colors sm:px-5 sm:text-xs",
             isAdmin
               ? "bg-[var(--ink)] text-white"
               : "text-[var(--ink3)] hover:text-[var(--ink)]",
@@ -65,7 +64,7 @@ export function TopBar() {
       <div className="flex items-center gap-3">
         {!isAdmin && (
           <button
-            onClick={itemCount > 0 ? toggleCart : openCheckout}
+            onClick={openCart}
             className="flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white transition-all hover:opacity-90"
             style={{ background: "var(--accent)" }}
           >
