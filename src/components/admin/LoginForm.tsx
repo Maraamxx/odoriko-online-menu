@@ -27,7 +27,7 @@ export function LoginForm() {
       });
       if (!res.ok) throw new Error(COPY.login.invalidPass);
       document.cookie = `admin_secret=${password}; path=/`;
-      router.push(from);
+      window.location.href = from;
     } catch (error) {
       handleError(error);
     } finally {
