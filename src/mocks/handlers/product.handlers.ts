@@ -5,6 +5,7 @@ import {
   ProductSchema,
   ProductArraySchema,
   CreateProductInputSchema,
+  type Product,
   type ProductId,
 } from "@/domain.contract";
 import { API } from "@/constants/api-endpoints";
@@ -33,6 +34,16 @@ export const productHandlers = [
     });
     db.products.insert(product);
     return HttpResponse.json(product, { status: 201 });
+  }),
+
+  http.patch(url(API.PRODUCT(":id")), async ({ params, request }) => {
+    const id = params["id"] as string;
+    const product = db.products.getById(id);
+    if (!product)
+      return HttpResponse.json({ error: "NOT_FOUND", message: "Product not found" }, { status: 404 });
+    const body = (await request.json()) as Partial<Product>;
+    const updated = db.products.update(id, body);
+    return HttpResponse.json(ProductSchema.parse(updated));
   }),
 
   http.patch(url(API.PRODUCT_AVAILABILITY(":id")), ({ params }) => {

@@ -72,24 +72,14 @@ export function AddProductForm({ onDone }: AddProductFormProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
-        <Input
-          label="Price (EGP)"
-          placeholder="0.00"
-          error={err("priceInCents")}
-          type="number"
-          step="0.01"
-          {...register("priceInCents", { valueAsNumber: true })}
-        />
-        <Input
-          label="Rating (0–5)"
-          placeholder="4.5"
-          error={err("rating")}
-          type="number"
-          step="0.1"
-          {...register("rating", { valueAsNumber: true })}
-        />
-      </div>
+      <Input
+        label="Price (EGP)"
+        placeholder="0.00"
+        error={err("priceInCents")}
+        type="number"
+        step="0.01"
+        {...register("priceInCents", { valueAsNumber: true })}
+      />
 
       <Input label="Description" placeholder="Concise, elegant dish description for guests..." error={err("description")} {...register("description")} />
 

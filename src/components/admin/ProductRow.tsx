@@ -12,9 +12,10 @@ interface ProductRowProps {
   readonly currency: Currency;
   readonly onToggle: (id: ProductId) => void;
   readonly onDelete: (id: ProductId) => void;
+  readonly onEdit: (product: Product) => void;
 }
 
-export function ProductRow({ product, currency, onToggle, onDelete }: ProductRowProps) {
+export function ProductRow({ product, currency, onToggle, onDelete, onEdit }: ProductRowProps) {
   return (
     <tr className="border-b text-sm" style={{ borderColor: "var(--border)" }}>
       <td className="py-3 pr-4">
@@ -35,6 +36,7 @@ export function ProductRow({ product, currency, onToggle, onDelete }: ProductRow
       </td>
       <td className="py-3">
         <div className="flex gap-2">
+          <button onClick={() => onEdit(product)} className="text-xs font-medium" style={{ color: "var(--primary)" }}>Edit</button>
           <Button variant="secondary" size="sm" onClick={() => onToggle(product.id as ProductId)}>
             {product.isAvailable ? COPY.admin.products.hide : COPY.admin.products.show}
           </Button>

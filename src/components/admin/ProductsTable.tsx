@@ -6,10 +6,11 @@ import { useProducts, useToggleAvailability, useDeleteProduct } from "@/hooks/us
 import { useSettings } from "@/hooks/useSettings";
 import { ProductRow } from "./ProductRow";
 import { AddProductForm } from "./AddProductForm";
+import { EditProductModal } from "./EditProductModal";
 import { SectionError } from "@/components/errors/SectionError";
-import { Button, Spinner } from "@/components/ui";
+import { Button, Spinner, ConfirmDialog } from "@/components/ui";
 import { COPY } from "@/constants/copy";
-import { PRODUCT_CATEGORIES, type ProductId, type ProductCategory } from "@/domain.contract";
+import { PRODUCT_CATEGORIES, type Product, type ProductId, type ProductCategory } from "@/domain.contract";
 
 const PAGE_SIZE = 10;
 
@@ -19,6 +20,8 @@ export function ProductsTable() {
   const [categoryFilter, setCategoryFilter] = useState<ProductCategory | "all">("all");
   const [statusFilter, setStatusFilter] = useState<"all" | "live" | "hidden">("all");
   const [search, setSearch] = useState("");
+  const [deleteId, setDeleteId] = useState<ProductId | null>(null);
+  const [editProduct, setEditProduct] = useState<Product | null>(null);
 
   const { data: products, isLoading, error, refetch } = useProducts();
   const toggleAvailability = useToggleAvailability();
@@ -42,6 +45,12 @@ export function ProductsTable() {
   const paged = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
   const liveCount = products?.filter((p) => p.isAvailable).length ?? 0;
 
+  const handleDelete = async () => {
+    if (!deleteId) return;
+    deleteProduct.mutate(deleteId);
+    setDeleteId(null);
+  };
+
   if (error) return <SectionError message={COPY.errors.server} onRetry={() => void refetch()} />;
   if (isLoading) return <div className="flex justify-center py-16"><Spinner size={28} /></div>;
 
@@ -59,29 +68,19 @@ export function ProductsTable() {
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3">
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={search}
+        <input type="text" placeholder="Search products..." value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(1); }}
           className="rounded-lg border px-3 py-1.5 text-sm"
-          style={{ borderColor: "var(--border)", color: "var(--ink)", width: 200 }}
-        />
-        <select
-          value={categoryFilter}
+          style={{ borderColor: "var(--border)", color: "var(--ink)", width: 200 }} />
+        <select value={categoryFilter}
           onChange={(e) => { setCategoryFilter(e.target.value as ProductCategory | "all"); setPage(1); }}
-          className="rounded-lg border px-3 py-1.5 text-sm"
-          style={{ borderColor: "var(--border)", color: "var(--ink)" }}
-        >
+          className="rounded-lg border px-3 py-1.5 text-sm" style={{ borderColor: "var(--border)", color: "var(--ink)" }}>
           <option value="all">All categories</option>
           {PRODUCT_CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
-        <select
-          value={statusFilter}
+        <select value={statusFilter}
           onChange={(e) => { setStatusFilter(e.target.value as "all" | "live" | "hidden"); setPage(1); }}
-          className="rounded-lg border px-3 py-1.5 text-sm"
-          style={{ borderColor: "var(--border)", color: "var(--ink)" }}
-        >
+          className="rounded-lg border px-3 py-1.5 text-sm" style={{ borderColor: "var(--border)", color: "var(--ink)" }}>
           <option value="all">All statuses</option>
           <option value="live">Live</option>
           <option value="hidden">Hidden</option>
@@ -98,7 +97,6 @@ export function ProductsTable() {
               <tr className="border-b text-xs font-medium" style={{ borderColor: "var(--border)", color: "var(--ink4)" }}>
                 <th className="pb-2 pr-4">Product</th>
                 <th className="pb-2 pr-4">Category</th>
-                <th className="pb-2 pr-4">Rating</th>
                 <th className="pb-2 pr-4">Price</th>
                 <th className="pb-2 pr-4">Status</th>
                 <th className="pb-2">Actions</th>
@@ -111,7 +109,8 @@ export function ProductsTable() {
                   product={p}
                   currency={currency}
                   onToggle={(id: ProductId) => toggleAvailability.mutate(id)}
-                  onDelete={(id: ProductId) => deleteProduct.mutate(id)}
+                  onDelete={(id: ProductId) => setDeleteId(id)}
+                  onEdit={setEditProduct}
                 />
               ))}
             </tbody>
@@ -119,31 +118,31 @@ export function ProductsTable() {
         </div>
       )}
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex items-center justify-between pt-2">
-          <span className="text-xs" style={{ color: "var(--ink4)" }}>
-            Page {safePage} of {totalPages}
-          </span>
+          <span className="text-xs" style={{ color: "var(--ink4)" }}>Page {safePage} of {totalPages}</span>
           <div className="flex gap-2">
-            <button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={safePage <= 1}
+            <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={safePage <= 1}
               className="rounded-lg border px-3 py-1 text-xs font-medium disabled:opacity-40"
-              style={{ borderColor: "var(--border)", color: "var(--ink3)" }}
-            >
-              Previous
-            </button>
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              disabled={safePage >= totalPages}
+              style={{ borderColor: "var(--border)", color: "var(--ink3)" }}>Previous</button>
+            <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={safePage >= totalPages}
               className="rounded-lg border px-3 py-1 text-xs font-medium disabled:opacity-40"
-              style={{ borderColor: "var(--border)", color: "var(--ink3)" }}
-            >
-              Next
-            </button>
+              style={{ borderColor: "var(--border)", color: "var(--ink3)" }}>Next</button>
           </div>
         </div>
+      )}
+
+      <ConfirmDialog
+        isOpen={!!deleteId}
+        onClose={() => setDeleteId(null)}
+        onConfirm={handleDelete}
+        title="Delete product"
+        message="This will permanently remove this product from the menu. This action cannot be undone."
+        isLoading={deleteProduct.isPending}
+      />
+
+      {editProduct && (
+        <EditProductModal product={editProduct} onClose={() => setEditProduct(null)} />
       )}
     </div>
   );

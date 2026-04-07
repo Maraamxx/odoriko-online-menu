@@ -255,11 +255,35 @@ const SEED_SETTINGS: PricingSettings = {
   updatedAt: now(),
 };
 
+// ── Seed categories ──────────────────────────────────────────────────────────
+
+export interface CategoryRecord {
+  id: string;
+  name: string;
+  japaneseName: string;
+}
+
+const SEED_CATEGORIES: CategoryRecord[] = [
+  { id: "cat_starters", name: "Starters", japaneseName: "前菜" },
+  { id: "cat_salads", name: "Salads", japaneseName: "サラダ" },
+  { id: "cat_soups", name: "Soups & Ramen", japaneseName: "スープ・ラーメン" },
+  { id: "cat_wok", name: "From the Wok", japaneseName: "炒め物" },
+  { id: "cat_dimsum", name: "Dim Sum & Bao", japaneseName: "点心・包" },
+  { id: "cat_skewers", name: "Skewers", japaneseName: "串焼き" },
+  { id: "cat_robata", name: "Robatayaki", japaneseName: "炉端焼き" },
+  { id: "cat_sushi", name: "Sushi", japaneseName: "寿司" },
+  { id: "cat_sides", name: "Sides", japaneseName: "サイド" },
+  { id: "cat_breakfast", name: "Breakfast", japaneseName: "朝食" },
+  { id: "cat_desserts", name: "Desserts", japaneseName: "デザート" },
+  { id: "cat_bev", name: "Beverages", japaneseName: "ドリンク" },
+];
+
 // ── In-memory store ──────────────────────────────────────────────────────────
 
 let _products = [...SEED_PRODUCTS];
 let _orders = [...SEED_ORDERS];
 let _settings = { ...SEED_SETTINGS };
+let _categories = [...SEED_CATEGORIES];
 
 export const db = {
   products: {
@@ -304,6 +328,22 @@ export const db = {
     update: (patch: Partial<PricingSettings>) => {
       _settings = { ..._settings, ...patch, updatedAt: now() };
       return _settings;
+    },
+  },
+  categories: {
+    getAll: () => [..._categories],
+    getById: (id: string) => _categories.find((c) => c.id === id) ?? null,
+    insert: (c: CategoryRecord) => {
+      _categories = [..._categories, c];
+      return c;
+    },
+    update: (id: string, patch: Partial<CategoryRecord>) => {
+      const updated = { ..._categories.find((c) => c.id === id)!, ...patch };
+      _categories = _categories.map((c) => (c.id === id ? updated : c));
+      return updated;
+    },
+    delete: (id: string) => {
+      _categories = _categories.filter((c) => c.id !== id);
     },
   },
 };

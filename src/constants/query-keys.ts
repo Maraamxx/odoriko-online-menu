@@ -15,4 +15,7 @@ export const QK = {
   dashboard: {
     stats:  ()                      => ['dashboard', 'stats'] as const,
   },
+  categories: {
+    all:    ()                      => ['categories'] as const,
+  },
 } as const;

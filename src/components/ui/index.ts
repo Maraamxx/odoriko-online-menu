@@ -6,3 +6,4 @@ export { Modal } from "./Modal";
 export { StarRating } from "./StarRating";
 export { ProgressBar } from "./ProgressBar";
 export { Spinner } from "./Spinner";
+export { ConfirmDialog } from "./ConfirmDialog";

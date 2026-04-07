@@ -7,4 +7,6 @@ export const API = {
   ORDER_STATUS:       (id: string) => `orders/${id}/status` as const,
   SETTINGS:           'settings',
   DASHBOARD_STATS:    'dashboard/stats',
+  CATEGORIES:         'categories',
+  CATEGORY:           (id: string) => `categories/${id}` as const,
 } as const;
