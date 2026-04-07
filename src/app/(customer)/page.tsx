@@ -21,33 +21,36 @@ export default function MenuPage() {
 
   return (
     <>
-      <div className="grid" style={{ gridTemplateColumns: "1fr 380px" }}>
-        <main className="px-8 pb-16">
-          <MenuHero />
-          <CategoryBar active={activeCategory} onSelect={setActiveCategory} />
-          <div className="mt-6">
-            <div className="mb-5 flex items-baseline justify-between">
-              <h2 className="font-serif text-2xl font-semibold" style={{ color: "var(--ink)" }}>
+      <main className="mx-auto max-w-5xl px-6 pb-16">
+        <MenuHero />
+        <CategoryBar active={activeCategory} onSelect={setActiveCategory} />
+        <div className="mt-8">
+          <div className="mb-5 flex items-baseline justify-between">
+            <div className="flex items-baseline gap-3">
+              <h2 className="font-serif text-2xl font-bold uppercase tracking-tight" style={{ color: "var(--ink)" }}>
                 {activeCategory === "All" ? "Full Menu" : activeCategory}
               </h2>
-              {products && (
-                <span className="text-xs" style={{ color: "var(--ink4)" }}>
-                  {products.length} {COPY.menu.available}
-                </span>
-              )}
+              <span className="font-serif text-sm" style={{ color: "var(--ink4)" }}>
+                {activeCategory === "All" ? "全メニュー" : COPY.categoryJa[activeCategory] ?? ""}
+              </span>
             </div>
-            <ProductGrid
-              products={products}
-              isLoading={isLoading}
-              error={error}
-              onAdd={cart.addItem}
-              currency={cart.currency}
-              onRetry={() => void refetch()}
-            />
+            {products && (
+              <span className="text-xs font-medium" style={{ color: "var(--ink4)" }}>
+                {products.length} {COPY.menu.available}
+              </span>
+            )}
           </div>
-        </main>
-        <CartPanel />
-      </div>
+          <ProductGrid
+            products={products}
+            isLoading={isLoading}
+            error={error}
+            onAdd={(product) => { cart.addItem(product); useUIStore.getState().openCart(); }}
+            currency={cart.currency}
+            onRetry={() => void refetch()}
+          />
+        </div>
+      </main>
+      <CartPanel />
       <CheckoutModal />
     </>
   );

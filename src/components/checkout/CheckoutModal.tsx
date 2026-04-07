@@ -26,13 +26,13 @@ function StepIndicator({ current }: { current: CheckoutStep }) {
           <div
             className="flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-semibold"
             style={{
-              background: i <= idx ? "var(--teal)" : "var(--surface3)",
+              background: i <= idx ? "var(--primary)" : "var(--surface3)",
               color: i <= idx ? "white" : "var(--ink4)",
             }}
           >
             {i + 1}
           </div>
-          <span className="text-xs font-medium" style={{ color: i <= idx ? "var(--teal)" : "var(--ink4)" }}>
+          <span className="text-xs font-medium" style={{ color: i <= idx ? "var(--primary)" : "var(--ink4)" }}>
             {STEP_LABELS[i]}
           </span>
           {i < STEPS.length - 1 && (

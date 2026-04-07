@@ -22,9 +22,9 @@ export function FreeDeliveryProgress({
   return (
     <div
       className="rounded-lg border p-3"
-      style={{ background: "var(--teal-pale)", borderColor: "var(--teal-pale2)" }}
+      style={{ background: "var(--accent-pale)", borderColor: "var(--accent-pale)" }}
     >
-      <p className="mb-2 text-xs font-medium" style={{ color: "var(--teal)" }}>
+      <p className="mb-2 text-xs font-medium" style={{ color: "var(--accent)" }}>
         {isFree
           ? COPY.cart.freeEarned
           : COPY.cart.freeProgress(formatPrice(remaining, currency))}

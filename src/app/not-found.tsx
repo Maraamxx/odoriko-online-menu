@@ -21,7 +21,7 @@ export default function NotFound() {
       </h1>
       <Link
         href={ROUTES.MENU}
-        style={{ color: "var(--teal)", textDecoration: "underline" }}
+        style={{ color: "var(--primary)", textDecoration: "underline" }}
       >
         {COPY.errors.goBack}
       </Link>

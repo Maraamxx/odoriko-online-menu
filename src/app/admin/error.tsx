@@ -25,7 +25,7 @@ export default function AdminError({
         onClick={reset}
         style={{
           padding: "0.5rem 1.5rem",
-          background: "var(--teal)",
+          background: "var(--primary)",
           color: "white",
           border: "none",
           borderRadius: "0.375rem",

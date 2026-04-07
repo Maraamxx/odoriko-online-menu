@@ -11,7 +11,7 @@ interface BadgeProps {
 const variantStyles: Record<Variant, string> = {
   success: "bg-[#e8f5e9] text-[var(--green)]",
   warning: "bg-[#fff8e1] text-[var(--amber)]",
-  info: "bg-[var(--teal-pale)] text-[var(--teal)]",
+  info: "bg-[var(--primary-pale)] text-[var(--primary)]",
   error: "bg-[#fdecea] text-[var(--red)]",
   neutral: "bg-[var(--surface3)] text-[var(--ink3)]",
 };

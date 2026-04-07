@@ -13,7 +13,7 @@ import type { Money } from "@/domain.contract";
 export function StatCardGrid() {
   const { data: stats, isLoading, error, refetch } = useDashboardStats();
   const settings = useSettings();
-  const currency = settings.data?.currency ?? "USD";
+  const currency = settings.data?.currency ?? "EGP";
 
   if (error) return <SectionError message={COPY.errors.server} onRetry={() => void refetch()} />;
   if (isLoading || !stats) return <div className="flex justify-center py-16"><Spinner size={28} /></div>;

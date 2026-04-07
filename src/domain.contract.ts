@@ -46,9 +46,10 @@ export type Money = number & { readonly _brand: "Money" };
 // Display labels colocated so they never drift from the enum values.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const CURRENCIES = ["USD", "EUR", "GBP"] as const;
+export const CURRENCIES = ["EGP", "USD", "EUR", "GBP"] as const;
 export type Currency = (typeof CURRENCIES)[number];
 export const CURRENCY_SYMBOLS: Record<Currency, string> = {
+  EGP: "EGP",
   USD: "$",
   EUR: "€",
   GBP: "£",
@@ -56,9 +57,17 @@ export const CURRENCY_SYMBOLS: Record<Currency, string> = {
 
 export const PRODUCT_CATEGORIES = [
   "Starters",
-  "Mains",
+  "Salads",
+  "Soups & Ramen",
+  "From the Wok",
+  "Dim Sum & Bao",
+  "Skewers",
+  "Robatayaki",
+  "Sushi",
+  "Sides",
+  "Breakfast",
   "Desserts",
-  "Drinks",
+  "Beverages",
 ] as const;
 export type ProductCategory = (typeof PRODUCT_CATEGORIES)[number];
 
@@ -140,7 +149,7 @@ export const ProductSchema = z.object({
   description: z.string().min(1).max(500),
   category: z.enum(PRODUCT_CATEGORIES),
   priceInCents: z.number().int().positive(),
-  imageUrl: z.url(),
+  imageUrl: z.string().min(1),
   rating: z.number().min(0).max(5),
   badge: z.string().max(30).nullable(),
   allergens: z.array(z.enum(ALLERGENS)),
@@ -157,7 +166,7 @@ export const ProductArraySchema = z.array(ProductSchema);
 export const CartItemSchema = z.object({
   productId: z.string().min(1),
   name: z.string().min(1), // snapshot — frozen at add-time
-  imageUrl: z.url(), // snapshot
+  imageUrl: z.string().min(1), // snapshot
   priceInCents: z.number().int().positive(), // snapshot — frozen at add-time
   quantity: z.number().int().min(1).max(99),
 });

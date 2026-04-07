@@ -23,16 +23,16 @@ export function OrderTracker({ currentStatus }: OrderTrackerProps) {
               <div
                 className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold"
                 style={{
-                  background: isCompleted ? "var(--teal)" : "var(--surface3)",
+                  background: isCompleted ? "var(--primary)" : "var(--surface3)",
                   color: isCompleted ? "white" : "var(--ink4)",
-                  boxShadow: isCurrent ? "0 0 0 3px var(--teal-pale2)" : undefined,
+                  boxShadow: isCurrent ? "0 0 0 3px var(--primary-pale2)" : undefined,
                 }}
               >
                 {i + 1}
               </div>
               <span
                 className="text-[10px] font-medium"
-                style={{ color: isCompleted ? "var(--teal)" : "var(--ink4)" }}
+                style={{ color: isCompleted ? "var(--primary)" : "var(--ink4)" }}
               >
                 {ORDER_STATUS_LABELS[step]}
               </span>
@@ -40,7 +40,7 @@ export function OrderTracker({ currentStatus }: OrderTrackerProps) {
             {i < ORDER_TRACKER_STEPS.length - 1 && (
               <div
                 className="mx-2 h-0.5 flex-1"
-                style={{ background: i < currentIdx ? "var(--teal)" : "var(--border)" }}
+                style={{ background: i < currentIdx ? "var(--primary)" : "var(--border)" }}
               />
             )}
           </div>

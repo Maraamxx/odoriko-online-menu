@@ -28,7 +28,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             "placeholder:text-[var(--ink4)]",
             error
               ? "border-[var(--red)]"
-              : "border-[var(--border)] focus:border-[var(--teal)]",
+              : "border-[var(--border)] focus:border-[var(--primary)]",
             className,
           )}
           style={{

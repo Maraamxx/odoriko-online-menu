@@ -27,7 +27,7 @@ export function Toggle({ checked, onChange, label, disabled }: ToggleProps) {
         style={{
           width: 42,
           height: 24,
-          background: checked ? "var(--teal)" : "var(--border2)",
+          background: checked ? "var(--primary)" : "var(--border2)",
         }}
       >
         <span

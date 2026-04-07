@@ -20,7 +20,7 @@ function Row({ label, value, bold }: { label: string; value: string; bold?: bool
   return (
     <div className={`flex justify-between ${bold ? "text-[15px] font-semibold" : "text-[12.5px]"}`}>
       <span style={{ color: bold ? "var(--ink)" : "var(--ink3)" }}>{label}</span>
-      <span style={{ color: bold ? "var(--teal)" : "var(--ink2)", fontWeight: bold ? 600 : 500 }}>{value}</span>
+      <span style={{ color: bold ? "var(--ink)" : "var(--ink2)", fontWeight: bold ? 600 : 500 }}>{value}</span>
     </div>
   );
 }

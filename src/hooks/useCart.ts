@@ -20,7 +20,7 @@ export function useCart() {
     ...cart,
     pricing,
     itemCount,
-    currency: settings.data?.currency ?? "USD",
+    currency: settings.data?.currency ?? "EGP",
     isAboveMin,
     settingsReady: settings.isSuccess,
   };

@@ -15,13 +15,13 @@ export function ProgressBar({ percent, label }: ProgressBarProps) {
       )}
       <div
         className="w-full overflow-hidden rounded-full"
-        style={{ height: 3, background: "var(--teal-pale2)" }}
+        style={{ height: 3, background: "var(--surface3)" }}
       >
         <div
           className="h-full rounded-full transition-all duration-400"
           style={{
             width: `${clamped}%`,
-            background: "var(--teal)",
+            background: "var(--accent)",
           }}
         />
       </div>

@@ -14,7 +14,7 @@ export default function CustomerLoading() {
           width: "2rem",
           height: "2rem",
           border: "3px solid var(--border)",
-          borderTopColor: "var(--teal)",
+          borderTopColor: "var(--primary)",
           borderRadius: "50%",
           animation: "spin 0.6s linear infinite",
         }}

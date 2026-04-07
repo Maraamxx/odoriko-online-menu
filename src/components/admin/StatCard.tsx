@@ -24,8 +24,8 @@ export function StatCard({ label, value, change, changeType = "neutral", icon }:
         <span
           className="flex h-9 w-9 items-center justify-center rounded-lg"
           style={{
-            background: changeType === "up" ? "#e8f5e9" : changeType === "down" ? "#fdecea" : "var(--teal-pale)",
-            color: changeType === "up" ? "var(--green)" : changeType === "down" ? "var(--red)" : "var(--teal)",
+            background: changeType === "up" ? "#e8f5e9" : changeType === "down" ? "#fdecea" : "var(--primary-pale)",
+            color: changeType === "up" ? "var(--green)" : changeType === "down" ? "var(--red)" : "var(--primary)",
           }}
         >
           {icon}

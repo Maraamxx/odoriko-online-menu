@@ -39,7 +39,7 @@ export function CartItem({ item, currency, onRemove, onUpdateQty }: CartItemProp
           </button>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-[13px] font-semibold" style={{ color: "var(--teal)" }}>
+          <span className="text-[13px] font-semibold" style={{ color: "var(--primary)" }}>
             {formatPrice(lineTotal, currency)}
           </span>
           <QuantityControl

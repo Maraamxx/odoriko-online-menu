@@ -49,7 +49,7 @@ export default function ConfirmationPage() {
         <p className="mb-1 text-xs" style={{ color: "var(--ink4)" }}>
           {COPY.confirmation.reference}
         </p>
-        <p className="mb-6 font-serif text-lg font-semibold" style={{ color: "var(--teal)" }}>
+        <p className="mb-6 font-serif text-lg font-semibold" style={{ color: "var(--primary)" }}>
           {order.id}
         </p>
         <OrderTracker currentStatus={order.status} />
@@ -58,7 +58,7 @@ export default function ConfirmationPage() {
       <Link
         href={ROUTES.MENU}
         className="rounded-lg px-6 py-3 text-sm font-medium text-white transition-colors hover:opacity-90"
-        style={{ background: "var(--teal)" }}
+        style={{ background: "var(--primary)" }}
       >
         {COPY.confirmation.returnMenu}
       </Link>

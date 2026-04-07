@@ -9,7 +9,7 @@ import { TopBar } from "@/components/layout/TopBar";
 const makeClient = () =>
   new QueryClient({
     defaultOptions: {
-      queries: { staleTime: 30_000, retry: 1 },
+      queries: { staleTime: 30_000, retry: 2, retryDelay: 500 },
       mutations: { onError: handleError },
     },
   });
@@ -19,14 +19,23 @@ export function Providers({ children }: { readonly children: React.ReactNode }) 
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
     const init = async () => {
       if (process.env.NEXT_PUBLIC_USE_MSW === "true") {
         const { worker } = await import("@/mocks/browser");
-        await worker.start({ onUnhandledRequest: "warn" });
+        await worker.start({
+          onUnhandledRequest(req, print) {
+            const url = new URL(req.url);
+            if (url.pathname.startsWith("/api/")) {
+              print.warning();
+            }
+          },
+        });
       }
-      setReady(true);
+      if (!cancelled) setReady(true);
     };
     void init();
+    return () => { cancelled = true; };
   }, []);
 
   return (
@@ -35,7 +44,7 @@ export function Providers({ children }: { readonly children: React.ReactNode }) 
         position="top-right"
         toastOptions={{
           style: {
-            fontFamily: "Work Sans, sans-serif",
+            fontFamily: "Plus Jakarta Sans, sans-serif",
             fontSize: "13px",
             background: "var(--surface)",
             color: "var(--ink)",

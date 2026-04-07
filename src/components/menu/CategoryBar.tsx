@@ -10,38 +10,33 @@ interface CategoryBarProps {
   readonly onSelect: (cat: ProductCategory | "All") => void;
 }
 
-const ICONS: Record<ProductCategory | "All", string> = {
-  All: "M4 6h16M4 12h16M4 18h16",
-  Starters: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z",
-  Mains: "M3 17h18v2H3v-2zm0-7h18v2H3v-2zm0-7h18v2H3V3z",
-  Desserts: "M12 2l2.4 7.4h7.6l-6 4.6 2.3 7L12 16.4 5.7 21l2.3-7L2 9.4h7.6z",
-  Drinks: "M6 2l1 5h10l1-5M8 7v8a4 4 0 008 0V7",
-};
-
 type Category = ProductCategory | "All";
 const ALL_CATS: Category[] = ["All", ...PRODUCT_CATEGORIES];
 
 export function CategoryBar({ active, onSelect }: CategoryBarProps) {
   return (
-    <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
+    <div className="flex gap-1.5 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
       {ALL_CATS.map((cat) => {
         const isActive = cat === active;
+        const jaText = cat === "All" ? "全て" : COPY.categoryJa[cat];
         return (
           <button
             key={cat}
             onClick={() => onSelect(cat)}
             className={cn(
-              "inline-flex shrink-0 items-center gap-1.5 rounded-full border px-4 py-2 text-xs font-medium transition-colors",
+              "flex shrink-0 flex-col items-center gap-0.5 rounded-lg px-4 py-2 transition-all",
               isActive
-                ? "border-[var(--teal)] bg-[var(--teal-pale)] text-[var(--teal)]"
-                : "border-[var(--border2)] text-[var(--ink3)] hover:border-[var(--teal)] hover:text-[var(--teal)]",
+                ? "text-white"
+                : "text-[var(--ink3)] hover:bg-[var(--surface2)] hover:text-[var(--ink)]",
             )}
+            style={isActive ? { background: "var(--ink)" } : undefined}
           >
-            <svg width={14} height={14} viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" strokeWidth={2} strokeLinecap="round">
-              <path d={ICONS[cat]} />
-            </svg>
-            {cat === "All" ? COPY.menu.filterAll : cat}
+            <span className="text-[11px] font-bold uppercase tracking-wider">
+              {cat === "All" ? "All" : cat}
+            </span>
+            <span className={cn("text-[9px]", isActive ? "text-[var(--ink4)]" : "opacity-50")}>
+              {jaText}
+            </span>
           </button>
         );
       })}

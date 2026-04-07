@@ -1,7 +1,9 @@
 import { CURRENCY_SYMBOLS, type Currency, type Money } from "@/domain.contract";
 
-export function formatPrice(cents: Money, currency: Currency = "USD"): string {
-  return `${CURRENCY_SYMBOLS[currency]}${(cents / 100).toFixed(2)}`;
+export function formatPrice(cents: Money, currency: Currency = "EGP"): string {
+  const amount = (cents / 100).toFixed(2);
+  if (currency === "EGP") return `${amount} EGP`;
+  return `${CURRENCY_SYMBOLS[currency]}${amount}`;
 }
 
 export function formatDate(iso: string): string {

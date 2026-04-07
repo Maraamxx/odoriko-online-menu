@@ -3,21 +3,22 @@ import { COPY } from "@/constants/copy";
 
 export function MenuHero() {
   return (
-    <section className="flex flex-col gap-4 py-10">
+    <section className="flex flex-col gap-3 py-10">
       <span
-        className="inline-flex w-fit items-center gap-1.5 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-widest"
-        style={{ background: "var(--teal-pale)", color: "var(--teal)" }}
+        className="inline-flex w-fit items-center gap-1.5 rounded px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
+        style={{ background: "var(--accent)", color: "white" }}
       >
-        <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-          <path d="M12 5v14M5 12h14" />
-        </svg>
         {COPY.menu.heroEyebrow}
       </span>
-      <h1 className="max-w-md font-serif text-[42px] font-semibold leading-tight" style={{ color: "var(--ink)" }}>
-        Crafted for your{" "}
-        <em className="font-serif italic" style={{ color: "var(--teal)" }}>finest moments</em>
+      <h1 className="max-w-lg font-serif text-[44px] font-bold leading-[1.1] tracking-tight" style={{ color: "var(--ink)" }}>
+        CRAFTED FOR YOUR{" "}
+        <em className="font-serif italic" style={{ color: "var(--accent)" }}>FINEST</em>{" "}
+        MOMENTS
       </h1>
-      <p className="max-w-lg text-sm leading-relaxed" style={{ color: "var(--ink3)" }}>
+      <p className="font-serif text-sm tracking-[0.15em]" style={{ color: "var(--ink4)" }}>
+        最高のひとときのために
+      </p>
+      <p className="max-w-md text-sm leading-relaxed" style={{ color: "var(--ink3)" }}>
         {COPY.menu.heroSubtitle}
       </p>
     </section>

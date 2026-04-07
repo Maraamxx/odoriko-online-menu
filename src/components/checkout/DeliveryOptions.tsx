@@ -39,8 +39,8 @@ export function DeliveryOptions({ selected, settings, subtotal, currency, onSele
           className={cn(
             "flex flex-col gap-1 rounded-xl border p-4 text-left transition-colors",
             selected === type
-              ? "border-[var(--teal)] bg-[var(--teal-pale)]"
-              : "border-[var(--border)] hover:border-[var(--teal)]",
+              ? "border-[var(--primary)] bg-[var(--primary-pale)]"
+              : "border-[var(--border)] hover:border-[var(--primary)]",
           )}
         >
           <span className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
@@ -49,7 +49,7 @@ export function DeliveryOptions({ selected, settings, subtotal, currency, onSele
           <span className="text-xs" style={{ color: "var(--ink3)" }}>
             {DELIVERY_ETA[type]}
           </span>
-          <span className="text-xs font-medium" style={{ color: "var(--teal)" }}>
+          <span className="text-xs font-medium" style={{ color: "var(--primary)" }}>
             {fee(type)}
           </span>
         </button>

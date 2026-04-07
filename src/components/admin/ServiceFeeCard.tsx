@@ -11,15 +11,18 @@ import { handleError } from "@/lib/error";
 export function ServiceFeeCard() {
   const { data: settings, isLoading } = useSettings();
   const update = useUpdateSettings();
-  const [fee, setFee] = useState<number | null>(null);
+  const toEgp = (cents: number) => (cents / 100).toFixed(2);
+  const toCents = (egp: string) => Math.round(parseFloat(egp || "0") * 100);
+
+  const [fee, setFee] = useState<string | null>(null);
 
   if (isLoading || !settings) return <Spinner />;
 
-  const value = fee ?? settings.serviceFeeInCents;
+  const value = fee ?? toEgp(settings.serviceFeeInCents);
 
   const save = async () => {
     try {
-      await update.mutateAsync({ serviceFeeInCents: value });
+      await update.mutateAsync({ serviceFeeInCents: toCents(value) });
     } catch (err) {
       handleError(err);
     }
@@ -29,8 +32,8 @@ export function ServiceFeeCard() {
     <div className="rounded-[18px] border p-6" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
       <h3 className="mb-1 text-sm font-semibold" style={{ color: "var(--ink)" }}>{COPY.admin.settings.serviceFee}</h3>
       <p className="mb-4 text-xs" style={{ color: "var(--ink4)" }}>{COPY.admin.settings.serviceFeeSub}</p>
-      <SettingsRow label="Fee (cents)">
-        <input type="number" value={value} onChange={(ev) => setFee(Number(ev.target.value))}
+      <SettingsRow label="Service fee (EGP)">
+        <input type="number" step="0.01" value={value} onChange={(ev) => setFee(ev.target.value)}
           className="w-24 rounded border px-2 py-1 text-sm" style={{ borderColor: "var(--border)" }} />
       </SettingsRow>
       <div className="mt-4 flex justify-end">

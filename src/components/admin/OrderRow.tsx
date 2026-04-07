@@ -19,13 +19,13 @@ export function OrderRow({ order, currency, onStatusChange }: OrderRowProps) {
 
   return (
     <tr className="border-b text-sm" style={{ borderColor: "var(--border)" }}>
-      <td className="py-3 pr-4 font-serif text-[15px] font-semibold" style={{ color: "var(--teal)" }}>
+      <td className="py-3 pr-4 font-serif text-[15px] font-semibold" style={{ color: "var(--primary)" }}>
         {order.id.slice(0, 8)}
       </td>
       <td className="py-3 pr-4">
         <div className="flex items-center gap-2">
           <span className="flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-semibold text-white"
-            style={{ background: "var(--teal)" }}>
+            style={{ background: "var(--primary)" }}>
             {initials}
           </span>
           <span style={{ color: "var(--ink)" }}>{order.customerName}</span>

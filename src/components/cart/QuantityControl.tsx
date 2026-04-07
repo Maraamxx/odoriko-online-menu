@@ -11,7 +11,7 @@ export function QuantityControl({ quantity, onChange }: QuantityControlProps) {
     <div className="inline-flex items-center gap-2">
       <button
         onClick={() => onChange(quantity - 1)}
-        className="flex h-[26px] w-[26px] items-center justify-center rounded-full border text-xs transition-colors hover:border-[var(--teal)] hover:text-[var(--teal)]"
+        className="flex h-[26px] w-[26px] items-center justify-center rounded-full border text-xs transition-colors hover:border-[var(--primary)] hover:text-[var(--primary)]"
         style={{ borderColor: "var(--border2)", color: "var(--ink3)" }}
         aria-label="Decrease quantity"
       >
@@ -22,7 +22,7 @@ export function QuantityControl({ quantity, onChange }: QuantityControlProps) {
       </span>
       <button
         onClick={() => onChange(quantity + 1)}
-        className="flex h-[26px] w-[26px] items-center justify-center rounded-full border text-xs transition-colors hover:border-[var(--teal)] hover:text-[var(--teal)]"
+        className="flex h-[26px] w-[26px] items-center justify-center rounded-full border text-xs transition-colors hover:border-[var(--primary)] hover:text-[var(--primary)]"
         style={{ borderColor: "var(--border2)", color: "var(--ink3)" }}
         aria-label="Increase quantity"
       >

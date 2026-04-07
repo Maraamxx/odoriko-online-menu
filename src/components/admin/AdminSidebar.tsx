@@ -67,7 +67,7 @@ export function AdminSidebar() {
                 className={cn(
                   "flex items-center gap-2.5 rounded-lg px-3 py-2 text-[12.5px] font-medium transition-colors",
                   isActive
-                    ? "border-l-2 border-[var(--teal)] bg-[var(--teal-pale)] text-[var(--teal)]"
+                    ? "border-l-2 border-[var(--primary)] bg-[var(--primary-pale)] text-[var(--primary)]"
                     : "border-l-2 border-transparent text-[var(--ink3)] hover:bg-[var(--surface2)] hover:text-[var(--ink)]",
                 )}
               >

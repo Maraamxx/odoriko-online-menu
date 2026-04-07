@@ -25,13 +25,13 @@ export function PaymentOptions({ selected, onSelect }: PaymentOptionsProps) {
           className={cn(
             "flex flex-col items-center gap-2 rounded-xl border p-4 transition-colors",
             selected === method
-              ? "border-[var(--teal)] bg-[var(--teal-pale)]"
-              : "border-[var(--border)] hover:border-[var(--teal)]",
+              ? "border-[var(--primary)] bg-[var(--primary-pale)]"
+              : "border-[var(--border)] hover:border-[var(--primary)]",
           )}
         >
           <svg width={14} height={14} viewBox="0 0 24 24" fill="none"
             stroke="currentColor" strokeWidth={2} strokeLinecap="round"
-            style={{ color: selected === method ? "var(--teal)" : "var(--ink3)" }}>
+            style={{ color: selected === method ? "var(--primary)" : "var(--ink3)" }}>
             <path d={ICONS[method]} />
           </svg>
           <span className="text-xs font-medium" style={{ color: "var(--ink2)" }}>

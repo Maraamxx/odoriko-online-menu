@@ -15,7 +15,7 @@ export function Spinner({ size = 20, className }: SpinnerProps) {
         width: size,
         height: size,
         border: "2.5px solid var(--border)",
-        borderTopColor: "var(--teal)",
+        borderTopColor: "var(--primary)",
       }}
     />
   );
