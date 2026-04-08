@@ -17,7 +17,7 @@ const makeClient = () =>
 
 export function Providers({ children }: { readonly children: React.ReactNode }) {
   const pathname = usePathname();
-  const isLanding = pathname === "/";
+  const isMarketing = pathname === "/" || pathname === "/our-story";
   const [client] = useState(makeClient);
   const [ready, setReady] = useState(false);
 
@@ -57,7 +57,7 @@ export function Providers({ children }: { readonly children: React.ReactNode }) 
       />
       {ready ? (
         <>
-          {!isLanding && <TopBar />}
+          {!isMarketing && <TopBar />}
           {children}
         </>
       ) : (

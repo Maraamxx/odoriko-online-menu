@@ -1,6 +1,7 @@
 export const ROUTES = {
   HOME:         '/',
   MENU:         '/menu',
+  OUR_STORY:    '/our-story',
   CHECKOUT:     '/checkout',
   CONFIRMATION: (id: string) => `/confirmation/${id}` as const,
   ADMIN: {
