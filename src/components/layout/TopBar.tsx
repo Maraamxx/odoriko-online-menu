@@ -22,7 +22,7 @@ export function TopBar() {
       style={{ background: "var(--surface)", borderColor: "var(--border)" }}
     >
       {/* Left: Brand */}
-      <Link href={ROUTES.MENU} className="flex items-center">
+      <Link href={ROUTES.HOME} className="flex items-center">
         <Image
           src="/brand/logo-full.webp"
           alt={COPY.brand.name}

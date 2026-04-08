@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "sonner";
 import { handleError } from "@/lib/error";
@@ -15,6 +16,8 @@ const makeClient = () =>
   });
 
 export function Providers({ children }: { readonly children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isLanding = pathname === "/";
   const [client] = useState(makeClient);
   const [ready, setReady] = useState(false);
 
@@ -54,7 +57,7 @@ export function Providers({ children }: { readonly children: React.ReactNode }) 
       />
       {ready ? (
         <>
-          <TopBar />
+          {!isLanding && <TopBar />}
           {children}
         </>
       ) : (

@@ -1,31 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Kaisei Decol", serif;
-  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Shippori Mincho", "Kaisei Decol", serif;
+  --font-sans: "Noto Sans JP", "Plus Jakarta Sans", sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
   --default-font-family: var(--font-sans);
 }
 
 @layer base {
   :root {
-    --bg:         #F5F4F0;
-    --surface:    #FFFFFF;
-    --surface2:   #F0EFE9;
-    --surface3:   #E8E6DE;
-    --ink:        #0F0F0F;
-    --ink2:       #2A2A2A;
-    --ink3:       #5C5C5C;
-    --ink4:       #9A9A9A;
-    --primary:    #0F0F0F;
-    --primary2:   #2A2A2A;
-    --primary-pale:  #F0EFE9;
-    --primary-pale2: #E0DDD4;
-    --accent:     #C41E3A;
-    --accent2:    #A01830;
-    --accent-pale: #FDF2F4;
-    --border:     #E4E2DA;
+    --bg:         #F0EDE6;
+    --surface:    #FDFCF9;
+    --surface2:   #F0EDE6;
+    --surface3:   #E5E0D5;
+    --ink:        #1A1410;
+    --ink2:       #3D3530;
+    --ink3:       #6B5F55;
+    --ink4:       #A09388;
+    --primary:    #1A1410;
+    --primary2:   #3D3530;
+    --primary-pale:  #F0EDE6;
+    --primary-pale2: #E5E0D5;
+    --accent:     #C5304A;
+    --accent2:    #8F1E30;
+    --accent-pale: #F5E8EB;
+    --border:     #E5E0D5;
     --border2:    #D0CEC5;
-    --red:        #C41E3A;
+    --red:        #C5304A;
+    --red-dark:   #8F1E30;
+    --red-pale:   #F5E8EB;
+    --cream:      #F0EDE6;
+    --cream2:     #E5E0D5;
+    --white:      #FDFCF9;
     --green:      #1E6B3C;
     --amber:      #B07A15;
   }
@@ -34,4 +40,9 @@
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
   }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
