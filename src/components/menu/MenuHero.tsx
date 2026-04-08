@@ -4,7 +4,7 @@ import { COPY } from "@/constants/copy";
 
 export function MenuHero() {
   return (
-    <section className="flex items-center gap-8 py-10">
+    <section className="flex items-end gap-8 py-10">
       <div className="flex flex-1 flex-col gap-3">
         <span
           className="inline-flex w-fit items-center gap-1.5 rounded px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
@@ -24,13 +24,14 @@ export function MenuHero() {
           {COPY.menu.heroSubtitle}
         </p>
       </div>
-      <div className="hidden shrink-0 -rotate-90 md:block">
+      <div className="hidden shrink-0 self-end md:block">
         <Image
           src="/brand/logo-full.webp"
           alt={COPY.brand.name}
-          width={200}
-          height={64}
-          style={{ width: 200, height: "auto", opacity: 0.12, filter: "brightness(0.2)" }}
+          width={160}
+          height={52}
+          className="-rotate-90"
+          style={{ width: 160, height: "auto", opacity: 0.12, filter: "brightness(0.2)" }}
         />
       </div>
     </section>

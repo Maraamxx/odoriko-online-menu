@@ -51,8 +51,20 @@ export function HeroSection() {
             </a>
           </div>
         </div>
-        <div className="mt-10">
-          <HeroStats />
+        <div className="mt-10 flex items-end gap-6">
+          <div className="flex-1">
+            <HeroStats />
+          </div>
+          <div className="hidden shrink-0 lg:block">
+            <Image
+              src="/brand/logo-full.webp"
+              alt=""
+              width={140}
+              height={45}
+              className="-rotate-90 brightness-0 invert"
+              style={{ width: 140, height: "auto", opacity: 0.12 }}
+            />
+          </div>
         </div>
       </div>
       {/* Right — image with logo overlay */}
