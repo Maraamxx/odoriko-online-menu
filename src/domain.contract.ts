@@ -169,6 +169,8 @@ export const CartItemSchema = z.object({
   imageUrl: z.string().min(1), // snapshot
   priceInCents: z.number().int().positive(), // snapshot — frozen at add-time
   quantity: z.number().int().min(1).max(99),
+  customizations: z.array(z.string()).default([]),
+  notes: z.string().default(""),
 });
 export type CartItem = z.infer<typeof CartItemSchema>;
 
@@ -176,6 +178,7 @@ export const CartSchema = z.object({
   items: z.array(CartItemSchema),
   deliveryType: z.enum(DELIVERY_TYPES),
   paymentMethod: z.enum(PAYMENT_METHODS),
+  orderNotes: z.string().default(""),
 });
 export type Cart = z.infer<typeof CartSchema>;
 

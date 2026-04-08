@@ -14,6 +14,7 @@ interface CartFooterProps {
   readonly currency: Currency;
   readonly itemCount: number;
   readonly onCheckout: () => void;
+  readonly onAddMore?: (() => void) | undefined;
 }
 
 function Row({ label, value, bold }: { label: string; value: string; bold?: boolean }) {
@@ -25,7 +26,7 @@ function Row({ label, value, bold }: { label: string; value: string; bold?: bool
   );
 }
 
-export function CartFooter({ pricing, settings, currency, itemCount, onCheckout }: CartFooterProps) {
+export function CartFooter({ pricing, settings, currency, itemCount, onCheckout, onAddMore }: CartFooterProps) {
   if (!pricing) return null;
 
   const fmt = (cents: number) => formatPrice(cents as Money, currency);
@@ -53,14 +54,26 @@ export function CartFooter({ pricing, settings, currency, itemCount, onCheckout 
         <div className="my-1 border-t" style={{ borderColor: "var(--border)" }} />
         <Row label={COPY.cart.total} value={fmt(pricing.grandTotalInCents)} bold />
       </div>
-      <Button
-        onClick={onCheckout}
-        disabled={itemCount === 0}
-        className="w-full tracking-[0.04em]"
-        size="lg"
-      >
-        {COPY.cart.checkout}
-      </Button>
+      <div className="flex gap-2">
+        {onAddMore && (
+          <Button
+            onClick={onAddMore}
+            variant="secondary"
+            className="flex-1 tracking-[0.04em]"
+            size="lg"
+          >
+            {COPY.cart.addMore}
+          </Button>
+        )}
+        <Button
+          onClick={onCheckout}
+          disabled={itemCount === 0}
+          className="flex-1 tracking-[0.04em]"
+          size="lg"
+        >
+          {COPY.cart.checkout}
+        </Button>
+      </div>
     </div>
   );
 }

@@ -25,6 +25,8 @@ const item = (price: number, qty: number): CartItem => ({
   imageUrl: "https://x.com/i.jpg",
   priceInCents: c(price),
   quantity: qty,
+  customizations: [],
+  notes: "",
 });
 
 describe("calculateSubtotal", () => {

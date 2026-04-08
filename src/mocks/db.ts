@@ -139,8 +139,8 @@ const SEED_ORDERS: Order[] = [
     deliveryType: "standard",
     paymentMethod: "card",
     items: [
-      { productId: "prod_017", name: "Beef Shoyu Ramen", imageUrl: dish("soups-ramen", "beef-shoyu-ramen.webp"), priceInCents: cash(52500), quantity: 2 },
-      { productId: "prod_079", name: "Zen Zei", imageUrl: dish("beverages", "zen-zei.webp"), priceInCents: cash(29500), quantity: 1 },
+      { productId: "prod_017", name: "Beef Shoyu Ramen", imageUrl: dish("soups-ramen", "beef-shoyu-ramen.webp"), priceInCents: cash(52500), quantity: 2, customizations: [], notes: "" },
+      { productId: "prod_079", name: "Zen Zei", imageUrl: dish("beverages", "zen-zei.webp"), priceInCents: cash(29500), quantity: 1, customizations: [], notes: "" },
     ],
     pricing: { subtotalInCents: cash(134500), deliveryFeeInCents: cash(0), serviceFeeInCents: cash(5000), vatInCents: cash(20925), grandTotalInCents: cash(160425) },
     address: { firstName: "Ahmed", lastName: "Hassan", street: "14 Road 9, Maadi", city: "Cairo", postalCode: "11431", phone: "+20 100 123 4567" },
@@ -155,8 +155,8 @@ const SEED_ORDERS: Order[] = [
     deliveryType: "express",
     paymentMethod: "apple-pay",
     items: [
-      { productId: "prod_043", name: "Big Catch (40 pcs)", imageUrl: dish("sushi", "big-catch-40-.jpg"), priceInCents: cash(179500), quantity: 1 },
-      { productId: "prod_070", name: "Matcha Fondant", imageUrl: dish("desserts", "matcha-fundue.png"), priceInCents: cash(32000), quantity: 2 },
+      { productId: "prod_043", name: "Big Catch (40 pcs)", imageUrl: dish("sushi", "big-catch-40-.jpg"), priceInCents: cash(179500), quantity: 1, customizations: [], notes: "" },
+      { productId: "prod_070", name: "Matcha Fondant", imageUrl: dish("desserts", "matcha-fundue.png"), priceInCents: cash(32000), quantity: 2, customizations: [], notes: "" },
     ],
     pricing: { subtotalInCents: cash(243500), deliveryFeeInCents: cash(0), serviceFeeInCents: cash(5000), vatInCents: cash(37275), grandTotalInCents: cash(285775) },
     address: { firstName: "Nour", lastName: "El-Din", street: "28 Abdel Moneim Riad, Mohandessin", city: "Giza", postalCode: "12411", phone: "+20 112 234 5678" },
@@ -171,8 +171,8 @@ const SEED_ORDERS: Order[] = [
     deliveryType: "standard",
     paymentMethod: "card",
     items: [
-      { productId: "prod_002", name: "Odoriko's Beef Tataki", imageUrl: dish("starters", "odoriko-beef-tataki-.png"), priceInCents: cash(55000), quantity: 1 },
-      { productId: "prod_022", name: "Mongolian Beef", imageUrl: dish("wok", "mongolian-beef.webp"), priceInCents: cash(49000), quantity: 1 },
+      { productId: "prod_002", name: "Odoriko's Beef Tataki", imageUrl: dish("starters", "odoriko-beef-tataki-.png"), priceInCents: cash(55000), quantity: 1, customizations: [], notes: "" },
+      { productId: "prod_022", name: "Mongolian Beef", imageUrl: dish("wok", "mongolian-beef.webp"), priceInCents: cash(49000), quantity: 1, customizations: [], notes: "" },
     ],
     pricing: { subtotalInCents: cash(104000), deliveryFeeInCents: cash(0), serviceFeeInCents: cash(5000), vatInCents: cash(16350), grandTotalInCents: cash(125350) },
     address: { firstName: "Youssef", lastName: "Khalil", street: "5 Taha Hussein, Zamalek", city: "Cairo", postalCode: "11211", phone: "+20 101 345 6789" },
@@ -187,7 +187,7 @@ const SEED_ORDERS: Order[] = [
     deliveryType: "standard",
     paymentMethod: "cash",
     items: [
-      { productId: "prod_038", name: "Black Pepper Short Ribs Pot", imageUrl: dish("robatayaki", "black-pepper-short-rib-rice-pot-.png"), priceInCents: cash(139500), quantity: 1 },
+      { productId: "prod_038", name: "Black Pepper Short Ribs Pot", imageUrl: dish("robatayaki", "black-pepper-short-rib-rice-pot-.png"), priceInCents: cash(139500), quantity: 1, customizations: [], notes: "" },
     ],
     pricing: { subtotalInCents: cash(139500), deliveryFeeInCents: cash(0), serviceFeeInCents: cash(5000), vatInCents: cash(21675), grandTotalInCents: cash(166175) },
     address: { firstName: "Layla", lastName: "Mahmoud", street: "12 El Batal Ahmed Abdel Aziz", city: "Giza", postalCode: "12511", phone: "+20 100 456 7890" },
@@ -202,7 +202,7 @@ const SEED_ORDERS: Order[] = [
     deliveryType: "standard",
     paymentMethod: "card",
     items: [
-      { productId: "prod_016", name: "Salmon Poke Bowl", imageUrl: dish("salads", "salmon-poke-bowl.webp"), priceInCents: cash(59500), quantity: 2 },
+      { productId: "prod_016", name: "Salmon Poke Bowl", imageUrl: dish("salads", "salmon-poke-bowl.webp"), priceInCents: cash(59500), quantity: 2, customizations: [], notes: "" },
     ],
     pricing: { subtotalInCents: cash(119000), deliveryFeeInCents: cash(0), serviceFeeInCents: cash(5000), vatInCents: cash(18600), grandTotalInCents: cash(142600) },
     address: { firstName: "Omar", lastName: "Farid", street: "7 Syria Street, Mohandessin", city: "Giza", postalCode: "12411", phone: "+20 111 567 8901" },
@@ -217,8 +217,8 @@ const SEED_ORDERS: Order[] = [
     deliveryType: "standard",
     paymentMethod: "card",
     items: [
-      { productId: "prod_058", name: "Matcha Pain Perdu", imageUrl: dish("breakfast", "matcha-pain-perdu.webp"), priceInCents: cash(39000), quantity: 2 },
-      { productId: "prod_074", name: "Matcha Latte", imageUrl: dish("beverages", "matcha-latte.webp"), priceInCents: cash(16000), quantity: 2 },
+      { productId: "prod_058", name: "Matcha Pain Perdu", imageUrl: dish("breakfast", "matcha-pain-perdu.webp"), priceInCents: cash(39000), quantity: 2, customizations: [], notes: "" },
+      { productId: "prod_074", name: "Matcha Latte", imageUrl: dish("beverages", "matcha-latte.webp"), priceInCents: cash(16000), quantity: 2, customizations: [], notes: "" },
     ],
     pricing: { subtotalInCents: cash(110000), deliveryFeeInCents: cash(0), serviceFeeInCents: cash(5000), vatInCents: cash(17250), grandTotalInCents: cash(132250) },
     address: { firstName: "Salma", lastName: "Ibrahim", street: "22 Road 233, Degla Maadi", city: "Cairo", postalCode: "11431", phone: "+20 102 678 9012" },
@@ -233,7 +233,7 @@ const SEED_ORDERS: Order[] = [
     deliveryType: "express",
     paymentMethod: "card",
     items: [
-      { productId: "prod_044", name: "Royal Platter (40 pcs)", imageUrl: dish("sushi", "royal-sushi-platter-.png"), priceInCents: cash(260000), quantity: 1 },
+      { productId: "prod_044", name: "Royal Platter (40 pcs)", imageUrl: dish("sushi", "royal-sushi-platter-.png"), priceInCents: cash(260000), quantity: 1, customizations: [], notes: "" },
     ],
     pricing: { subtotalInCents: cash(260000), deliveryFeeInCents: cash(0), serviceFeeInCents: cash(5000), vatInCents: cash(39750), grandTotalInCents: cash(304750) },
     address: { firstName: "Karim", lastName: "Mostafa", street: "3 El Gezira, Zamalek", city: "Cairo", postalCode: "11211", phone: "+20 100 789 0123" },

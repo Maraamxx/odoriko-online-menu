@@ -7,6 +7,7 @@ import { useUIStore } from "@/store/ui.store";
 import { MenuHero } from "@/components/menu/MenuHero";
 import { CategoryBar } from "@/components/menu/CategoryBar";
 import { ProductGrid } from "@/components/menu/ProductGrid";
+import { AllergenLegend } from "@/components/menu/AllergenLegend";
 import { CartPanel } from "@/components/cart/CartPanel";
 import { CheckoutModal } from "@/components/checkout/CheckoutModal";
 import type { ProductCategory } from "@/domain.contract";
@@ -24,6 +25,9 @@ export default function MenuPage() {
       <main className="mx-auto max-w-5xl px-4 pb-16 sm:px-6">
         <MenuHero />
         <CategoryBar active={activeCategory} onSelect={setActiveCategory} />
+        <div className="mt-4">
+          <AllergenLegend />
+        </div>
         <div className="mt-8">
           <div className="mb-5 flex items-baseline justify-between">
             <div className="flex items-baseline gap-3">
