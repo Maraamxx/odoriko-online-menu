@@ -51,11 +51,19 @@ export function HeroSection() {
           <HeroStats />
         </div>
       </div>
-      {/* Right */}
-      <div className="relative hidden lg:block">
-        <Image src="/brand/hero-section-img.jpg" alt="Japanese fine dining" fill sizes="50vw" className="object-cover" priority />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(26,20,16,.4) 0%, transparent 40%)" }} />
-        <div className="absolute bottom-12 -left-6 rounded-sm px-7 py-5 text-white" style={{ background: "var(--accent)" }}>
+      {/* Right — logo + badge */}
+      <div className="relative hidden items-center justify-center overflow-hidden lg:flex" style={{ background: "var(--ink)" }}>
+        <span className="pointer-events-none absolute -bottom-16 -right-8 select-none font-serif text-[280px] font-semibold leading-none" style={{ color: "rgba(255,255,255,.03)" }}>踊子</span>
+        <Image
+          src="/brand/logo-full.webp"
+          alt={COPY.brand.name}
+          width={280}
+          height={90}
+          className="relative z-10 brightness-0 invert"
+          style={{ width: 280, height: "auto", opacity: 0.85 }}
+          priority
+        />
+        <div className="absolute bottom-12 left-12 z-10 rounded-sm px-7 py-5 text-white" style={{ background: "var(--accent)" }}>
           <div className="text-[9px] uppercase tracking-[0.14em] opacity-70">{L.openNow}</div>
           <div className="mt-1 text-[28px] leading-none tracking-[0.04em]" style={{ fontFamily: "var(--font-display)" }}>{L.openHours}</div>
           <div className="mt-0.5 text-[9px] opacity-65">{L.openModes}</div>
