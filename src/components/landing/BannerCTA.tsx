@@ -22,7 +22,6 @@ export function BannerCTA() {
         <p className="mx-auto mt-6 max-w-md text-sm leading-[1.75]" style={{ color: "rgba(255,255,255,.55)" }}>{L.bannerSub}</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3.5">
           <Link href={ROUTES.MENU} className="rounded-sm px-9 py-4 text-xs font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[var(--accent2)]" style={{ background: "var(--accent)" }}>{L.bannerOrder}</Link>
-          <a href="#" className="rounded-sm px-9 py-4 text-xs font-medium uppercase tracking-[0.1em] transition-all hover:bg-[var(--cream2)]" style={{ background: "var(--surface)", color: "var(--ink)" }}>{L.bannerReserve}</a>
         </div>
       </div>
     </section>

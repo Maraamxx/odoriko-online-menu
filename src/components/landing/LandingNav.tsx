@@ -37,13 +37,6 @@ export function LandingNav() {
       </ul>
 
       <div className="flex items-center gap-3">
-        <a
-          href="#"
-          className="hidden rounded-sm border px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.1em] transition-all hover:bg-[var(--ink)] hover:text-[var(--white)] sm:inline-block"
-          style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
-        >
-          {COPY.landing.reserve}
-        </a>
         <Link
           href={ROUTES.MENU}
           className="rounded-sm px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-[var(--accent2)]"

@@ -4,6 +4,11 @@ const config: NextConfig = {
     root: __dirname,
   },
   allowedDevOrigins: ["172.20.10.4"],
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+    ],
+  },
 };
 
 export default config;

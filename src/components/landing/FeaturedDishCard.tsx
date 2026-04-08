@@ -12,7 +12,7 @@ interface FeaturedDishCardProps {
 export function FeaturedDishCard({ name, desc, price, image, badge, large }: FeaturedDishCardProps) {
   return (
     <div className={`group relative cursor-pointer overflow-hidden rounded-sm ${large ? "row-span-2" : ""}`} style={{ background: "var(--surface)" }}>
-      <div className={`overflow-hidden ${large ? "h-[300px] sm:h-[480px]" : "h-[220px]"}`}>
+      <div className={`relative overflow-hidden ${large ? "h-[300px] sm:h-[480px]" : "h-[220px]"}`}>
         <Image src={image} alt={name} fill sizes={large ? "40vw" : "20vw"} className="object-cover transition-transform duration-500 group-hover:scale-[1.06]" />
       </div>
       {badge && (
