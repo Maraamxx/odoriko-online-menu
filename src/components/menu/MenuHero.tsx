@@ -1,25 +1,30 @@
 // Static — no data, no hooks
+import Image from "next/image";
 import { COPY } from "@/constants/copy";
 
 export function MenuHero() {
   return (
     <section className="relative overflow-hidden py-10">
-      {/* Editorial bleed watermark — rotated logo text, bleeds off right edge */}
-      <span
-        className="pointer-events-none absolute select-none whitespace-nowrap"
-        style={{
-          fontFamily: "var(--font-display)",
-          fontSize: 120,
-          letterSpacing: "0.12em",
-          color: "rgba(26, 20, 16, .06)",
-          right: -40,
-          top: "50%",
-          transform: "translateY(-50%) rotate(90deg)",
-          transformOrigin: "center center",
-        }}
+      {/* Logo watermark — actual logo-full image, rotated, anchored right, full hero height */}
+      <div
+        className="pointer-events-none absolute right-4 top-0 bottom-0 hidden select-none items-center md:flex"
+        aria-hidden="true"
       >
-        {COPY.brand.name}
-      </span>
+        <Image
+          src="/brand/logo-full.webp"
+          alt=""
+          width={400}
+          height={128}
+          className="rotate-90"
+          style={{
+            width: "auto",
+            height: "100%",
+            maxHeight: 280,
+            opacity: 0.12,
+            filter: "brightness(0)",
+          }}
+        />
+      </div>
 
       <div className="relative z-10 flex flex-col gap-3">
         <span
