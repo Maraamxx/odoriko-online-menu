@@ -42,7 +42,7 @@ export function HeroSection() {
           <p className="mt-12 max-w-sm text-sm leading-[1.75]" style={{ color: "rgba(255,255,255,.55)" }}>{L.heroSub}</p>
           <div className="mt-12 flex flex-wrap items-center gap-4">
             <Link href={ROUTES.MENU} className="rounded-sm px-9 py-4 text-xs font-medium uppercase tracking-[0.12em] text-white transition-colors hover:bg-[var(--accent2)]" style={{ background: "var(--accent)" }}>{L.heroExplore}</Link>
-            <a href="#" className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.1em] transition-colors hover:text-white/90" style={{ color: "rgba(255,255,255,.5)" }}>
+            <a href={ROUTES.OUR_STORY} className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.1em] transition-colors hover:text-white/90" style={{ color: "rgba(255,255,255,.5)" }}>
               {L.heroStory}<span className="text-base">→</span>
             </a>
           </div>

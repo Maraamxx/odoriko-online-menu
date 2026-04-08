@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { COPY } from "@/constants/copy";
 import { SectionLabel } from "./SectionLabel";
+import { ROUTES } from "@/constants/routes";
 
 export function PhilosophySection() {
   const L = COPY.landing;
@@ -28,7 +29,7 @@ export function PhilosophySection() {
         <p className="mt-10 border-l-2 pl-5 font-serif text-[13px] font-light leading-8 tracking-[0.2em]" style={{ borderColor: "var(--accent)", color: "var(--ink4)" }}>
           {L.philQuoteJp}<br />{L.philQuoteEn}
         </p>
-        <a href="#" className="mt-10 inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.1em] transition-all hover:gap-5" style={{ color: "var(--accent)" }}>
+        <a href={ROUTES.OUR_STORY} className="mt-10 inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.1em] transition-all hover:gap-5" style={{ color: "var(--accent)" }}>
           {L.philLink}<span className="text-base">→</span>
         </a>
       </div>

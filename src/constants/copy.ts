@@ -189,7 +189,7 @@ export const COPY = {
     footerMenu:   'The Menu',
     footerVisit:  'Visit Us',
     footerHours:  'Opening Hours',
-    footerCopy:   '© 2025 Odoriko. All rights reserved.',
+    footerCopy:   '© 2026 Odoriko. All rights reserved.',
   },
   story: {
     heroEyebrow: 'The Story of Odoriko',
