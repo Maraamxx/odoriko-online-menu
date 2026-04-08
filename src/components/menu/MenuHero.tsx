@@ -4,16 +4,20 @@ import { COPY } from "@/constants/copy";
 
 export function MenuHero() {
   return (
-    <section className="relative py-10">
-      {/* Rotated logo — far right edge, vertically centered, outside content flow */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 hidden select-none items-center md:flex" aria-hidden="true">
+    <section className="relative overflow-visible py-10">
+      {/* Rotated logo — pinned to far right edge of viewport */}
+      <div
+        className="pointer-events-none absolute top-0 bottom-0 hidden select-none items-center md:flex"
+        style={{ right: "calc(-1 * (100vw - 100%) / 2)" }}
+        aria-hidden="true"
+      >
         <Image
           src="/brand/logo-full.webp"
           alt=""
-          width={300}
+          width={200}
           height={96}
           className="-rotate-90"
-          style={{ width: 300, height: "auto", opacity: 0.08, filter: "brightness(0.15)" }}
+          style={{ width: 200, height: "auto", opacity: 0.5, filter: "brightness(0.15)" }}
         />
       </div>
 
