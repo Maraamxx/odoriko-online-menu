@@ -7,14 +7,13 @@ const MENU_LINKS = [
   { en: "Robatayaki", jp: "炉端焼き" },
   { en: "Desserts", jp: "デザート" },
 ];
-const VISIT_LINKS = ["Our Story", "Gallery", "Reservations", "Private Dining", "Catering"];
 const HOURS = ["Mon – Thu   12:00 – 23:00", "Fri – Sat   12:00 – 00:00", "Sunday      12:00 – 22:00"];
 
 export function LandingFooter() {
   const L = COPY.landing;
   return (
     <footer className="px-6 pb-9 pt-16 sm:px-16" style={{ background: "var(--ink)", color: "rgba(255,255,255,.6)" }}>
-      <div className="mb-14 grid grid-cols-1 gap-12 border-b pb-14 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]" style={{ borderColor: "rgba(255,255,255,.08)" }}>
+      <div className="mb-14 grid grid-cols-1 gap-12 border-b pb-14 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]" style={{ borderColor: "rgba(255,255,255,.08)" }}>
         {/* Brand */}
         <div>
           <div className="mb-1.5 flex items-center gap-2.5 text-[32px] tracking-[0.14em] text-white" style={{ fontFamily: "var(--font-display)" }}>
@@ -35,15 +34,6 @@ export function LandingFooter() {
                   <span className="mt-0.5 block font-serif text-[9px] tracking-[0.08em]" style={{ color: "rgba(255,255,255,.2)" }}>{l.jp}</span>
                 </a>
               </li>
-            ))}
-          </ul>
-        </div>
-        {/* Visit */}
-        <div>
-          <div className="mb-5 text-[10px] uppercase tracking-[0.18em]" style={{ color: "rgba(255,255,255,.35)" }}>{L.footerVisit}</div>
-          <ul className="flex flex-col gap-3" style={{ listStyle: "none" }}>
-            {VISIT_LINKS.map((l) => (
-              <li key={l}><a href="#" className="text-[13px] transition-colors hover:text-white" style={{ color: "rgba(255,255,255,.5)" }}>{l}</a></li>
             ))}
           </ul>
         </div>
