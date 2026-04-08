@@ -11,7 +11,7 @@ import { cn } from "@/lib/cn";
 const NAV_ITEMS = [
   { label: "Menu メニュー", href: ROUTES.MENU },
   { label: "Our Story", href: ROUTES.OUR_STORY },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: ROUTES.CONTACT },
 ];
 
 export function LandingNav() {
