@@ -15,6 +15,9 @@ const ALL_CATS: Category[] = ["All", ...PRODUCT_CATEGORIES];
 
 export function CategoryBar({ active, onSelect }: CategoryBarProps) {
   return (
+    <div className="relative">
+    {/* Fade hint on right edge — indicates scrollable on mobile */}
+    <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-10 sm:hidden" style={{ background: "linear-gradient(to left, var(--bg), transparent)" }} />
     <div className="flex gap-1.5 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
       {ALL_CATS.map((cat) => {
         const isActive = cat === active;
@@ -40,6 +43,7 @@ export function CategoryBar({ active, onSelect }: CategoryBarProps) {
           </button>
         );
       })}
+    </div>
     </div>
   );
 }
