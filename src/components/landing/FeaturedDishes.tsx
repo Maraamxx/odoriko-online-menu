@@ -4,10 +4,10 @@ import { ROUTES } from "@/constants/routes";
 import { FeaturedDishCard } from "./FeaturedDishCard";
 
 const DISHES = [
-  { name: "Odoriko's Wagyu Tataki", desc: "Seared A5 wagyu, ponzu dressing, crispy garlic, daikon radish, fresh shiso", price: "550.00 EGP", image: "https://images.unsplash.com/photo-1617196034183-421b4040ed20?auto=format&fit=crop&w=600&h=600", badge: "Chef's Pick", large: true },
-  { name: "Firecracker Shrimp", desc: "Crispy tempura, sriracha glaze, sesame, micro greens", price: "440.00 EGP", image: "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?auto=format&fit=crop&w=400&h=300" },
-  { name: "Tonkotsu Ramen", desc: "18hr pork bone broth, chashu, soft egg, bamboo, nori", price: "380.00 EGP", image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&h=300" },
-  { name: "Premium Salmon Sashimi", desc: "Norwegian salmon, yuzu soy, freshly grated wasabi, pickled ginger", price: "490.00 EGP", image: "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&h=300", badge: "Seasonal" },
+  { name: "Odoriko's Beef Tataki", desc: "Seared wagyu tataki, ponzu dressing, crispy garlic, daikon radish, fresh shiso", price: "550.00 EGP", image: "/dishes/starters/odoriko-beef-tataki-.webp", badge: "Chef's Pick", large: true },
+  { name: "Firecracker Shrimp", desc: "Crispy tempura, sriracha glaze, sesame, micro greens", price: "440.00 EGP", image: "/dishes/starters/firecraker-sherimp.webp" },
+  { name: "Beef Shoyu Ramen", desc: "18hr bone broth, chashu, soft egg, bamboo, nori", price: "380.00 EGP", image: "/dishes/soups-ramen/beef-shoyu-ramen.webp" },
+  { name: "Salmon Sashimi", desc: "Norwegian salmon, yuzu soy, freshly grated wasabi, pickled ginger", price: "420.00 EGP", image: "/dishes/sushi/salmon-sashimi.webp", badge: "Seasonal" },
 ];
 
 export function FeaturedDishes() {

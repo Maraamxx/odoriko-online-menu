@@ -34,13 +34,13 @@ export function CraftSection() {
       </div>
       <div className="hidden grid-cols-2 gap-3 lg:grid">
         <div className="relative row-span-2 h-[420px] overflow-hidden rounded-sm">
-          <Image src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=500&h=500" alt="Kitchen" fill sizes="25vw" className="object-cover" />
+          <Image src="/dishes/robatayaki/cranberry-grilled-duck.webp" alt="Grilled duck" fill sizes="25vw" className="object-cover" />
         </div>
         <div className="relative h-[204px] overflow-hidden rounded-sm">
-          <Image src="https://images.unsplash.com/photo-1562802378-063ec186a863?auto=format&fit=crop&w=400&h=300" alt="Plating" fill sizes="25vw" className="object-cover" />
+          <Image src="/dishes/sushi/salmon-sashimi.webp" alt="Sashimi" fill sizes="25vw" className="object-cover" />
         </div>
         <div className="relative h-[204px] overflow-hidden rounded-sm">
-          <Image src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?auto=format&fit=crop&w=400&h=300" alt="Ingredients" fill sizes="25vw" className="object-cover" />
+          <Image src="/dishes/skewers/beef-kushayaki-.webp" alt="Skewers" fill sizes="25vw" className="object-cover" />
         </div>
       </div>
     </section>

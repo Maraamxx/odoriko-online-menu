@@ -8,7 +8,7 @@ export function PhilosophySection() {
     <section className="grid grid-cols-1 lg:grid-cols-2">
       <div className="relative h-[400px] overflow-hidden lg:h-[600px]">
         <Image
-          src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?auto=format&fit=crop&w=800&h=700"
+          src="/dishes/robatayaki/black-pepper-short-rib-rice-pot-.webp"
           alt="Kitchen craft"
           fill sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover transition-transform duration-500 hover:scale-[1.04]"

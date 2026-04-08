@@ -8,7 +8,7 @@ export function BannerCTA() {
   return (
     <section className="relative flex h-[420px] items-center justify-center overflow-hidden sm:h-[520px]">
       <Image
-        src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=1800&h=600"
+        src="/brand/hero-section-img.jpg"
         alt="Restaurant atmosphere"
         fill sizes="100vw"
         className="object-cover"

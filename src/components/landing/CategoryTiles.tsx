@@ -4,11 +4,11 @@ import { ROUTES } from "@/constants/routes";
 import { CategoryTile } from "./CategoryTile";
 
 const CATS = [
-  { name: "SOUPS & RAMEN", jp: "スープ・ラーメン", count: 14, image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&h=600" },
-  { name: "SUSHI", jp: "寿司", count: 22, image: "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?auto=format&fit=crop&w=400&h=600" },
-  { name: "ROBATAYAKI", jp: "炉端焼き", count: 18, image: "https://images.unsplash.com/photo-1617196034183-421b4040ed20?auto=format&fit=crop&w=400&h=600" },
-  { name: "DIM SUM", jp: "点心", count: 16, image: "https://images.unsplash.com/photo-1562802378-063ec186a863?auto=format&fit=crop&w=400&h=600" },
-  { name: "SKEWERS", jp: "串焼き", count: 14, image: "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&h=600" },
+  { name: "SOUPS & RAMEN", jp: "スープ・ラーメン", count: 14, image: "/dishes/soups-ramen/beef-shoyu-ramen.webp" },
+  { name: "SUSHI", jp: "寿司", count: 22, image: "/dishes/sushi/salmon-sashimi.webp" },
+  { name: "ROBATAYAKI", jp: "炉端焼き", count: 18, image: "/dishes/robatayaki/black-pepper-short-rib-rice-pot-.webp" },
+  { name: "DIM SUM", jp: "点心", count: 16, image: "/dishes/dimsum-bao/crispy-shrimp-bao-.webp" },
+  { name: "SKEWERS", jp: "串焼き", count: 14, image: "/dishes/skewers/beef-kushayaki-.webp" },
 ];
 
 export function CategoryTiles() {
