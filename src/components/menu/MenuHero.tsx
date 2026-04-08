@@ -6,14 +6,14 @@ export function MenuHero() {
   return (
     <section className="relative py-10">
       {/* Rotated logo — far right edge, vertically centered, outside content flow */}
-      <div className="pointer-events-none absolute -right-6 top-0 bottom-0 hidden select-none items-center md:flex" aria-hidden="true">
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 hidden select-none items-center md:flex" aria-hidden="true">
         <Image
           src="/brand/logo-full.webp"
           alt=""
-          width={160}
-          height={52}
+          width={300}
+          height={96}
           className="-rotate-90"
-          style={{ width: 160, height: "auto", opacity: 0.1, filter: "brightness(0.15)" }}
+          style={{ width: 300, height: "auto", opacity: 0.08, filter: "brightness(0.15)" }}
         />
       </div>
 
