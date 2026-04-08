@@ -4,29 +4,8 @@ import { COPY } from "@/constants/copy";
 
 export function MenuHero() {
   return (
-    <section className="relative overflow-hidden py-10">
-      {/* Logo watermark — actual logo-full image, rotated, anchored right, full hero height */}
-      <div
-        className="pointer-events-none absolute right-4 top-0 bottom-0 hidden select-none items-center md:flex"
-        aria-hidden="true"
-      >
-        <Image
-          src="/brand/logo-full.webp"
-          alt=""
-          width={400}
-          height={128}
-          className="rotate-90"
-          style={{
-            width: "auto",
-            height: "100%",
-            maxHeight: 280,
-            opacity: 0.12,
-            filter: "brightness(0)",
-          }}
-        />
-      </div>
-
-      <div className="relative z-10 flex flex-col gap-3">
+    <section className="flex items-center gap-8 py-10">
+      <div className="flex flex-1 flex-col gap-3">
         <span
           className="inline-flex w-fit items-center gap-1.5 rounded px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
           style={{ background: "var(--accent)", color: "white" }}
@@ -44,6 +23,15 @@ export function MenuHero() {
         <p className="max-w-md text-sm leading-relaxed" style={{ color: "var(--ink3)" }}>
           {COPY.menu.heroSubtitle}
         </p>
+      </div>
+      <div className="hidden shrink-0 -rotate-90 md:block">
+        <Image
+          src="/brand/logo-full.webp"
+          alt={COPY.brand.name}
+          width={200}
+          height={64}
+          style={{ width: 200, height: "auto", opacity: 0.12, filter: "brightness(0.2)" }}
+        />
       </div>
     </section>
   );
