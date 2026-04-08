@@ -28,10 +28,21 @@ export function HeroSection() {
       {/* Left */}
       <div className="relative flex flex-col justify-between overflow-hidden px-6 py-16 sm:px-16 lg:py-20" style={{ background: "var(--ink)" }}>
         <span className="pointer-events-none absolute -bottom-10 -right-5 select-none font-serif text-[180px] font-semibold leading-none lg:text-[260px]" style={{ color: "rgba(255,255,255,.04)" }}>踊子</span>
-        {/* Rotated white logo — right edge, vertically centered */}
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 flex select-none items-center" aria-hidden="true">
-          <Image src="/brand/logo-full.webp" alt="" width={300} height={96} className="-rotate-90 brightness-0 invert" style={{ width: 300, height: "auto", opacity: 0.08 }} priority />
-        </div>
+{/* Rotated white logo — right edge, mobile only */}
+<div
+  className="pointer-events-none absolute bottom-0 right-0 top-0 flex select-none items-center md:hidden"
+  aria-hidden="true"
+>
+  <Image
+    src="/brand/logo-full.webp"
+    alt=""
+    width={500}
+    height={96}
+    className="-rotate-90 brightness-0 invert"
+    style={{ width: 500, height: "auto", opacity: 0.08 }}
+    priority
+  />
+</div>
         <div>
           <div className="mb-10 flex items-center gap-2.5">
             <div className="h-px w-8" style={{ background: "var(--accent)" }} />

@@ -1,6 +1,6 @@
 // Static — no data, no hooks
-import Image from "next/image";
 import { COPY } from "@/constants/copy";
+import Image from "next/image";
 
 export function MenuHero() {
   return (
@@ -26,28 +26,27 @@ export function MenuHero() {
         </p>
       </div>
 
-      {/* Right border strip — 64px column with rotated logo */}
-      <div
-        className="hidden w-16 shrink-0 items-center justify-center border-l md:flex"
-        style={{ borderColor: "var(--border)" }}
-        aria-hidden="true"
-      >
-        <Image
-          src="/brand/logo-full.webp"
-          alt=""
-          width={200}
-          height={64}
-          className="rotate-180"
-          style={{
-            width: "auto",
-            height: 200,
-            objectFit: "contain",
-            opacity: 0.07,
-            filter: "brightness(0)",
-            writingMode: "vertical-rl",
-          }}
-        />
-      </div>
+ {/* Right border strip — 64px column with rotated logo */}
+<div
+  className="hidden w-16 shrink-0 items-center justify-center border-l md:flex"
+  style={{ borderColor: "var(--border)" }}
+  aria-hidden="true"
+>
+  <Image
+    src="/brand/logo-full.webp"
+    alt=""
+    width={200}
+    height={40}
+    style={{
+      width: "auto",
+      height: 180,
+      objectFit: "contain",
+      opacity: 0.18,
+      filter: "brightness(0)",
+      transform: "rotate(-90deg)",
+    }}
+  />
+</div>
     </section>
   );
 }
