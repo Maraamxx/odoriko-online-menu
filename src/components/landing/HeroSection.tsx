@@ -28,6 +28,10 @@ export function HeroSection() {
       {/* Left */}
       <div className="relative flex flex-col justify-between overflow-hidden px-6 py-16 sm:px-16 lg:py-20" style={{ background: "var(--ink)" }}>
         <span className="pointer-events-none absolute -bottom-10 -right-5 select-none font-serif text-[180px] font-semibold leading-none lg:text-[260px]" style={{ color: "rgba(255,255,255,.04)" }}>踊子</span>
+        {/* Mobile logo — visible only on mobile where right panel is hidden */}
+        <div className="mb-8 flex justify-center lg:hidden">
+          <Image src="/brand/logo-full.webp" alt={COPY.brand.name} width={180} height={58} className="brightness-0 invert" style={{ width: 180, height: "auto", opacity: 0.8 }} priority />
+        </div>
         <div>
           <div className="mb-10 flex items-center gap-2.5">
             <div className="h-px w-8" style={{ background: "var(--accent)" }} />
@@ -51,18 +55,17 @@ export function HeroSection() {
           <HeroStats />
         </div>
       </div>
-      {/* Right — logo + badge */}
-      <div className="relative hidden items-center justify-center overflow-hidden lg:flex" style={{ background: "var(--ink)" }}>
-        <span className="pointer-events-none absolute -bottom-16 -right-8 select-none font-serif text-[280px] font-semibold leading-none" style={{ color: "rgba(255,255,255,.03)" }}>踊子</span>
-        <Image
-          src="/brand/logo-full.webp"
-          alt={COPY.brand.name}
-          width={280}
-          height={90}
-          className="relative z-10 brightness-0 invert"
-          style={{ width: 280, height: "auto", opacity: 0.85 }}
-          priority
-        />
+      {/* Right — image with logo overlay */}
+      <div className="relative hidden overflow-hidden lg:block">
+        {/* Background image — dimmed */}
+        <Image src="/brand/hero-section-img.jpg" alt="Japanese fine dining" fill sizes="50vw" className="object-cover" style={{ filter: "brightness(.35) saturate(.7)" }} priority />
+        {/* Gradient blending into left panel */}
+        <div className="absolute inset-0 z-[1]" style={{ background: "linear-gradient(to right, rgba(26,20,16,.8) 0%, transparent 40%)" }} />
+        {/* Centered logo */}
+        <div className="absolute inset-0 z-[2] flex items-center justify-center">
+          <Image src="/brand/logo-full.webp" alt={COPY.brand.name} width={300} height={96} className="brightness-0 invert" style={{ width: 300, height: "auto", opacity: 0.9 }} />
+        </div>
+        {/* Hours badge */}
         <div className="absolute bottom-12 left-12 z-10 rounded-sm px-7 py-5 text-white" style={{ background: "var(--accent)" }}>
           <div className="text-[9px] uppercase tracking-[0.14em] opacity-70">{L.openNow}</div>
           <div className="mt-1 text-[28px] leading-none tracking-[0.04em]" style={{ fontFamily: "var(--font-display)" }}>{L.openHours}</div>
