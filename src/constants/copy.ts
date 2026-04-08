@@ -173,7 +173,7 @@ export const COPY = {
     locationAddress: 'Arkan Plaza, Sheikh Zayed City, Egypt',
     locationAddressJp: 'アルカン・プラザ、シェイク・ザイード',
     locationDirections: 'Get directions',
-    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.8!2d30.9922!3d30.0226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585814b1f4e4d1%3A0xarkan!2sArkan+Plaza%2C+Sheikh+Zayed%2C+Giza%2C+Egypt!5e0!3m2!1sen!2seg!4v1700000000',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d215.91270841657487!2d31.00537722147725!3d30.01954424270293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585b006162e039%3A0x71a53c91b2d27f6c!2sOdoriko!5e0!3m2!1sen!2seg!4v1775646877833!5m2!1sen!2seg',
     socialLabel: 'Follow us',
     socialLabelJp: 'フォロー',
     socialTitle: 'STAY CONNECTED',
