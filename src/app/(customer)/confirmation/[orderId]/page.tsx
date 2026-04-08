@@ -32,7 +32,7 @@ export default function ConfirmationPage() {
   }
 
   return (
-    <div className="mx-auto flex max-w-lg flex-col items-center gap-8 px-4 py-8 text-center sm:px-8 sm:py-16">
+    <div className="mx-auto flex max-w-lg flex-col items-center gap-8 px-4 pt-24 pb-8 text-center sm:px-8 sm:pb-16">
       <div className="flex flex-col gap-2">
         <h1 className="font-serif text-3xl font-semibold" style={{ color: "var(--ink)" }}>
           {COPY.confirmation.title}

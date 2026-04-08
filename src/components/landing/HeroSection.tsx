@@ -24,7 +24,7 @@ function HeroStats() {
 export function HeroSection() {
   const L = COPY.landing;
   return (
-    <section className="grid min-h-screen grid-cols-1 pt-16 lg:grid-cols-2">
+    <section className="grid grid-cols-1 pt-16 lg:grid-cols-2" style={{ minHeight: "100dvh" }}>
       {/* Left */}
       <div className="relative flex flex-col justify-between overflow-hidden px-6 py-16 sm:px-16 lg:py-20" style={{ background: "var(--ink)" }}>
         <span className="pointer-events-none absolute -bottom-10 -right-5 select-none font-serif text-[180px] font-semibold leading-none lg:text-[260px]" style={{ color: "rgba(255,255,255,.04)" }}>踊子</span>

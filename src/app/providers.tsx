@@ -1,11 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "sonner";
 import { handleError } from "@/lib/error";
-import { TopBar } from "@/components/layout/TopBar";
 
 const makeClient = () =>
   new QueryClient({
@@ -16,8 +14,6 @@ const makeClient = () =>
   });
 
 export function Providers({ children }: { readonly children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isMarketing = pathname === "/" || pathname === "/our-story";
   const [client] = useState(makeClient);
   const [ready, setReady] = useState(false);
 
@@ -47,7 +43,7 @@ export function Providers({ children }: { readonly children: React.ReactNode }) 
         position="top-right"
         toastOptions={{
           style: {
-            fontFamily: "Plus Jakarta Sans, sans-serif",
+            fontFamily: "Noto Sans JP, sans-serif",
             fontSize: "13px",
             background: "var(--surface)",
             color: "var(--ink)",
@@ -55,14 +51,7 @@ export function Providers({ children }: { readonly children: React.ReactNode }) 
           },
         }}
       />
-      {ready ? (
-        <>
-          {!isMarketing && <TopBar />}
-          {children}
-        </>
-      ) : (
-        <div style={{ minHeight: "100vh", background: "var(--bg)" }} />
-      )}
+      {ready ? children : <div style={{ minHeight: "100vh", background: "var(--bg)" }} />}
     </QueryClientProvider>
   );
 }

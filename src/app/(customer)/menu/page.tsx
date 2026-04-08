@@ -22,7 +22,7 @@ export default function MenuPage() {
 
   return (
     <>
-      <main className="mx-auto max-w-5xl px-4 pb-16 sm:px-6">
+      <main className="mx-auto max-w-5xl px-4 pb-16 pt-20 sm:px-6">
         <MenuHero />
         <CategoryBar active={activeCategory} onSelect={setActiveCategory} />
         <div className="mt-4">

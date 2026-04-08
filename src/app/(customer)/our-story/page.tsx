@@ -1,4 +1,3 @@
-import { MarketingShell } from "@/components/landing/MarketingShell";
 import { StoryHero } from "@/components/story/StoryHero";
 import { OriginSection } from "@/components/story/OriginSection";
 import { FullBleedImage } from "@/components/story/FullBleedImage";
@@ -10,7 +9,7 @@ import { StoryCTA } from "@/components/story/StoryCTA";
 
 export default function OurStoryPage() {
   return (
-    <MarketingShell>
+    <>
       <StoryHero />
       <OriginSection />
       <FullBleedImage />
@@ -19,6 +18,6 @@ export default function OurStoryPage() {
       <NumbersStrip />
       <ValuesSection />
       <StoryCTA />
-    </MarketingShell>
+    </>
   );
 }

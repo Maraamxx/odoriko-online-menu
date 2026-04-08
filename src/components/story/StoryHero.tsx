@@ -4,7 +4,7 @@ import { COPY } from "@/constants/copy";
 export function StoryHero() {
   const S = COPY.story;
   return (
-    <section className="grid min-h-screen grid-cols-1 pt-16 lg:grid-cols-[55%_45%]">
+    <section className="grid grid-cols-1 pt-16 lg:grid-cols-[55%_45%]" style={{ minHeight: "100dvh" }}>
       <div className="relative flex flex-col justify-center overflow-hidden px-6 py-16 sm:px-16 lg:px-[72px] lg:py-20" style={{ background: "var(--ink)" }}>
         <span className="pointer-events-none absolute -bottom-14 -right-10 select-none font-serif text-[200px] font-semibold leading-none lg:text-[300px]" style={{ color: "rgba(255,255,255,.03)" }}>物語</span>
         <div className="mb-9 flex items-center gap-2.5">

@@ -1,4 +1,3 @@
-import { MarketingShell } from "@/components/landing/MarketingShell";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { MarqueeStrip } from "@/components/landing/MarqueeStrip";
 import { PhilosophySection } from "@/components/landing/PhilosophySection";
@@ -9,7 +8,7 @@ import { BannerCTA } from "@/components/landing/BannerCTA";
 
 export default function LandingPage() {
   return (
-    <MarketingShell>
+    <>
       <HeroSection />
       <MarqueeStrip />
       <PhilosophySection />
@@ -17,6 +16,6 @@ export default function LandingPage() {
       <CraftSection />
       <CategoryTiles />
       <BannerCTA />
-    </MarketingShell>
+    </>
   );
 }
