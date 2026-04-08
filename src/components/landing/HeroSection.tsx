@@ -28,9 +28,9 @@ export function HeroSection() {
       {/* Left */}
       <div className="relative flex flex-col justify-between overflow-hidden px-6 py-16 sm:px-16 lg:py-20" style={{ background: "var(--ink)" }}>
         <span className="pointer-events-none absolute -bottom-10 -right-5 select-none font-serif text-[180px] font-semibold leading-none lg:text-[260px]" style={{ color: "rgba(255,255,255,.04)" }}>踊子</span>
-        {/* Mobile logo — visible only on mobile where right panel is hidden */}
-        <div className="mb-8 flex justify-center lg:hidden">
-          <Image src="/brand/logo-full.webp" alt={COPY.brand.name} width={180} height={58} className="brightness-0 invert" style={{ width: 180, height: "auto", opacity: 0.8 }} priority />
+        {/* Rotated white logo — right edge, vertically centered */}
+        <div className="pointer-events-none absolute -right-4 top-0 bottom-0 flex select-none items-center" aria-hidden="true">
+          <Image src="/brand/logo-full.webp" alt="" width={140} height={45} className="-rotate-90 brightness-0 invert" style={{ width: 140, height: "auto", opacity: 0.1 }} priority />
         </div>
         <div>
           <div className="mb-10 flex items-center gap-2.5">
@@ -51,20 +51,8 @@ export function HeroSection() {
             </a>
           </div>
         </div>
-        <div className="mt-10 flex items-end gap-6">
-          <div className="flex-1">
-            <HeroStats />
-          </div>
-          <div className="hidden shrink-0 lg:block">
-            <Image
-              src="/brand/logo-full.webp"
-              alt=""
-              width={140}
-              height={45}
-              className="-rotate-90 brightness-0 invert"
-              style={{ width: 140, height: "auto", opacity: 0.12 }}
-            />
-          </div>
+        <div className="mt-10">
+          <HeroStats />
         </div>
       </div>
       {/* Right — image with logo overlay */}

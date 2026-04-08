@@ -4,8 +4,20 @@ import { COPY } from "@/constants/copy";
 
 export function MenuHero() {
   return (
-    <section className="flex items-end gap-8 py-10">
-      <div className="flex flex-1 flex-col gap-3">
+    <section className="relative py-10">
+      {/* Rotated logo — far right edge, vertically centered, outside content flow */}
+      <div className="pointer-events-none absolute -right-6 top-0 bottom-0 hidden select-none items-center md:flex" aria-hidden="true">
+        <Image
+          src="/brand/logo-full.webp"
+          alt=""
+          width={160}
+          height={52}
+          className="-rotate-90"
+          style={{ width: 160, height: "auto", opacity: 0.1, filter: "brightness(0.15)" }}
+        />
+      </div>
+
+      <div className="flex flex-col gap-3">
         <span
           className="inline-flex w-fit items-center gap-1.5 rounded px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em]"
           style={{ background: "var(--accent)", color: "white" }}
@@ -23,16 +35,6 @@ export function MenuHero() {
         <p className="max-w-md text-sm leading-relaxed" style={{ color: "var(--ink3)" }}>
           {COPY.menu.heroSubtitle}
         </p>
-      </div>
-      <div className="hidden shrink-0 self-end md:block">
-        <Image
-          src="/brand/logo-full.webp"
-          alt={COPY.brand.name}
-          width={160}
-          height={52}
-          className="-rotate-90"
-          style={{ width: 160, height: "auto", opacity: 0.12, filter: "brightness(0.2)" }}
-        />
       </div>
     </section>
   );
