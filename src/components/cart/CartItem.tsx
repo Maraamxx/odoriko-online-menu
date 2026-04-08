@@ -47,8 +47,12 @@ export function CartItem({ item, currency, onRemove, onUpdateQty, onToggleCustom
           </div>
           <button
             onClick={() => setShowCustomize(!showCustomize)}
-            className="mt-0.5 self-start text-[10px] font-medium uppercase tracking-wider transition-colors hover:text-[var(--accent)]"
-            style={{ color: hasCustom ? "var(--accent)" : "var(--ink4)" }}
+            className="mt-1 cursor-pointer self-start rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-wider transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-pale)] hover:text-[var(--accent)]"
+            style={{
+              borderColor: hasCustom ? "var(--accent)" : "var(--border)",
+              color: hasCustom ? "var(--accent)" : "var(--ink3)",
+              background: hasCustom ? "var(--accent-pale)" : "transparent",
+            }}
           >
             {COPY.cart.customize} {hasCustom && `(${item.customizations.length})`}
           </button>
