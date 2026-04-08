@@ -75,7 +75,7 @@ export const COPY = {
     track: {
       confirmed:  'Confirmed',
       preparing:  'Preparing',
-      enRoute:    'En Route',
+      enRoute:    'On the Way',
       delivered:  'Delivered',
     },
   },
