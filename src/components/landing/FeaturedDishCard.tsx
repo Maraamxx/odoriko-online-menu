@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { ROUTES } from "@/constants/routes";
 
 interface FeaturedDishCardProps {
   readonly name: string;
@@ -10,6 +14,8 @@ interface FeaturedDishCardProps {
 }
 
 export function FeaturedDishCard({ name, desc, price, image, badge, large }: FeaturedDishCardProps) {
+  const router = useRouter();
+
   return (
     <div className={`group relative cursor-pointer overflow-hidden rounded-sm ${large ? "row-span-2" : ""}`} style={{ background: "var(--surface)" }}>
       <div className={`relative overflow-hidden ${large ? "h-[300px] sm:h-[480px]" : "h-[220px]"}`}>
@@ -27,7 +33,11 @@ export function FeaturedDishCard({ name, desc, price, image, badge, large }: Fea
           <div className={`font-serif ${large ? "text-[26px]" : "text-xl"} font-semibold`} style={{ color: "var(--accent)" }}>
             {price} <sub className="font-sans text-[11px] font-normal" style={{ color: "var(--ink4)" }}>per person</sub>
           </div>
-          <button className="flex h-9 w-9 items-center justify-center rounded-full text-[22px] text-white transition-all hover:scale-110 hover:bg-[var(--accent2)]" style={{ background: "var(--accent)" }}>+</button>
+          <button
+            onClick={() => router.push(`${ROUTES.MENU}?addItem=${encodeURIComponent(name)}`)}
+            className="flex h-9 w-9 items-center justify-center rounded-full text-[22px] text-white transition-all hover:scale-110 hover:bg-[var(--accent2)]"
+            style={{ background: "var(--accent)" }}
+          >+</button>
         </div>
       </div>
     </div>

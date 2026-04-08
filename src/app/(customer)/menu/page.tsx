@@ -1,6 +1,8 @@
 // Fields: Product[] via useProducts, Cart via useCart, activeCategory via useUIStore
 "use client";
 
+import { useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import { useProducts } from "@/hooks/useProducts";
 import { useCart } from "@/hooks/useCart";
 import { useUIStore } from "@/store/ui.store";
@@ -14,11 +16,27 @@ import type { ProductCategory } from "@/domain.contract";
 import { COPY } from "@/constants/copy";
 
 export default function MenuPage() {
+  const searchParams = useSearchParams();
+  const addItemName = searchParams.get("addItem");
+  const addedRef = useRef<string | null>(null);
   const activeCategory = useUIStore((s) => s.activeCategory);
   const setActiveCategory = useUIStore((s) => s.setActiveCategory);
   const category = activeCategory === "All" ? undefined : (activeCategory as ProductCategory);
   const { data: products, isLoading, error, refetch } = useProducts(category);
   const cart = useCart();
+
+  // Auto-add item from landing page link
+  useEffect(() => {
+    if (!addItemName || !products || addedRef.current === addItemName) return;
+    const match = products.find((p) =>
+      p.name.toLowerCase().includes(addItemName.toLowerCase()),
+    );
+    if (match) {
+      cart.addItem(match);
+      useUIStore.getState().openCart();
+      addedRef.current = addItemName;
+    }
+  }, [addItemName, products, cart]);
 
   return (
     <>

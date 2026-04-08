@@ -1,5 +1,6 @@
 import { LandingNav } from "@/components/landing/LandingNav";
 import { LandingFooter } from "@/components/landing/LandingFooter";
+import { PageTransition } from "@/components/layout/PageTransition";
 
 export default function CustomerLayout({
   children,
@@ -9,7 +10,9 @@ export default function CustomerLayout({
   return (
     <>
       <LandingNav />
-      <main>{children}</main>
+      <PageTransition>
+        <main>{children}</main>
+      </PageTransition>
       <LandingFooter />
     </>
   );
